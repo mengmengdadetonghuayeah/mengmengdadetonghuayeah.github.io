@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react-native," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="React-Navigation npm or yarn install React-navigation12npm install react-navigation --save   oryarn add  react-navigation    使用react-navigation 必须创建导航器，react-navigation自带三种导航器 StackNavigator - 为您的应用程序">
+<meta name="keywords" content="react-native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-navigation">
+<meta property="og:url" content="http://zhouhongblog.com/2018/03/31/react-navigation/index.html">
+<meta property="og:site_name" content="萌萌哒的童话">
+<meta property="og:description" content="React-Navigation npm or yarn install React-navigation12npm install react-navigation --save   oryarn add  react-navigation    使用react-navigation 必须创建导航器，react-navigation自带三种导航器 StackNavigator - 为您的应用程序">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-31T07:02:38.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-navigation">
+<meta name="twitter:description" content="React-Navigation npm or yarn install React-navigation12npm install react-navigation --save   oryarn add  react-navigation    使用react-navigation 必须创建导航器，react-navigation自带三种导航器 StackNavigator - 为您的应用程序">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhouhongblog.com/2018/03/31/react-navigation/"/>
+
+
+
+
+
+  <title>react-navigation | 萌萌哒的童话</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">萌萌哒的童话</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/react-navigation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouHong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="萌萌哒的童话">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react-navigation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T14:21:00+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react-native</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="React-Navigation"><a href="#React-Navigation" class="headerlink" title="React-Navigation"></a>React-Navigation</h2><ul>
+<li>npm or yarn install React-navigation<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>react-navigation --save   <span class="keyword">or</span></span><br><span class="line"><span class="keyword">yarn </span><span class="keyword">add </span> react-navigation</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>使用react-navigation 必须创建导航器，react-navigation自带三种导航器<ul>
+<li>StackNavigator - 为您的应用程序在每个新屏幕放置在堆栈之上的屏幕之间进行切换</li>
+<li>TabNavigator -用于设置多个选项卡的屏幕(tab)</li>
+<li>DrawerNavigator -用于设置带抽屉导航的屏幕</li>
+</ul>
+</li>
+</ul>
+<h2 id="页面使用时创建一个StackNavigator-，最常见的底部切换"><a href="#页面使用时创建一个StackNavigator-，最常见的底部切换" class="headerlink" title="页面使用时创建一个StackNavigator ，最常见的底部切换"></a>页面使用时创建一个StackNavigator ，最常见的底部切换</h2><h2 id="StackNavigatorConfig说明"><a href="#StackNavigatorConfig说明" class="headerlink" title="StackNavigatorConfig说明"></a>StackNavigatorConfig说明</h2><h3 id="路由器的选项："><a href="#路由器的选项：" class="headerlink" title="路由器的选项："></a>路由器的选项：</h3><ul>
+<li>initialRouteName：设置堆栈的默认屏幕。必须匹配路由配置中的一个键。</li>
+<li>initialRouteParams：初始路线的参数</li>
+<li>navigationOptions：用于屏幕的默认导航选项</li>
+<li>paths：覆盖路由配置中设置的路径的映射</li>
+</ul>
+<h3 id="视觉选项："><a href="#视觉选项：" class="headerlink" title="视觉选项："></a>视觉选项：</h3><ul>
+<li>mode：定义渲染和转换的风格：</li>
+<li>card：使用标准的iOS和Android屏幕转换。这是默认的。</li>
+<li>modal：使屏幕从底部滑入，这是一种常见的iOS模式。只适用于iOS，对Android没有任何影响。</li>
+<li>headerMode：指定如何呈现标题：<ul>
+<li>float：在屏幕更改时渲染保留在顶部的单个标题和动画。这是iOS上的常见模式。</li>
+<li>screen：每个屏幕都有一个标题，标题与屏幕一起淡入淡出。这是Android上的常见模式。</li>
+<li>none：没有标题将被渲染。</li>
+</ul>
+</li>
+<li>cardStyle：使用这个道具覆盖或扩展堆栈中单个卡的默认样式。</li>
+<li>itransitionConfig：返回与默认屏幕转换合并的对象的函数（查看类型定义中的TransitionConfig ）。提供的函数将传递以下参数：<ul>
+<li>transitionProps：新屏幕的过渡道具。</li>
+<li>prevTransitionProps：过渡屏幕的道具。</li>
+<li>isModal：指定屏幕是模态的布尔值。</li>
+<li>onTransitionStart：卡转换动画即将开始时调用的函数。</li>
+<li>onTransitionEnd：卡转换动画完成后调用的函数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Screen-navigationOptions-屏幕导航参数说明"><a href="#Screen-navigationOptions-屏幕导航参数说明" class="headerlink" title="Screen navigationOptions 屏幕导航参数说明"></a>Screen navigationOptions 屏幕导航参数说明</h3><ul>
+<li>title：可以用作回退的字符串。此外，将用作（如果嵌套在TabNavigator中）或（如果嵌套在DrawerNavigator中）<ul>
+<li>headerTitle</li>
+<li>tabBarLabel</li>
+<li>drawerLabel</li>
+</ul>
+</li>
+<li>header：React元素或给定的函数返回React元素，显示为标题。设置为隐藏标题。Header：null</li>
+<li>headerTitle：字符串，React元素或React组件使用的标题。默认为上一级组件的名称。</li>
+<li>headerTitleAllowFontScaling：标题标题字体是否应缩放以尊重文本大小可访问性设置。默认为true。</li>
+<li>headerBackTitle：iOS上后退按钮使用的标题字符串，或禁用标签。默认为前一个场景的名称。隐藏设置为null</li>
+<li>headerTruncatedBackTitle：后退按钮使用的标题字符串不适合屏幕时。默认。headerBackTitle是”Back”</li>
+<li>headerRight:React元素显示在标题的右侧。</li>
+<li>headerLeft：React元素或组件显示在标题的左侧。当使用的成分。</li>
+<li>headerStyle：标题的样式obj</li>
+<li>headerTitleStyle：标题组件的样式obj</li>
+<li>headerBackTitleStyle：组件返回字体标题的样式obj</li>
+<li>headerTintColor：头部的颜色</li>
+<li>headerPressColorAndroid：材质纹波的颜色（仅适用于Android&gt; = 5.0）</li>
+<li>gesturesEnabled：是否可以使用手势来消除此屏幕。在iOS上默认为true，在Android上为false。</li>
+<li>gestureResponseDistance：对象覆盖从屏幕边缘开始触摸的距离，以识别手势。它具有以下属性：<ul>
+<li>horizontal- 数字 - 水平方向的距离。默认为25。</li>
+<li>vertical- 数字 - 垂直方向的距离。默认为135。</li>
+</ul>
+</li>
+<li>gestureDirection：string 来覆盖关闭手势的方向。正常行为或从右向左滑动。default、inverted</li>
+</ul>
+<h3 id="页面使用TabNavigator-标签栏"><a href="#页面使用TabNavigator-标签栏" class="headerlink" title="页面使用TabNavigator 标签栏"></a>页面使用TabNavigator 标签栏</h3><pre><code><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** TabNavigator */</span></span><br><span class="line">import &#123; TabNavigator, TabBarBottom, TabBarTop &#125; from <span class="string">'react-navigation'</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const tabRouteConfigs = &#123;</span><br><span class="line"><span class="symbol">    Home:</span> &#123;</span><br><span class="line"><span class="symbol">        screen:</span> HomeTab,</span><br><span class="line"><span class="symbol">        navigationOptions:</span> (&#123; navigation &#125;) =&gt; (&#123;</span><br><span class="line">            // 参数参考上面例子   </span><br><span class="line">        &#125;),</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line"><span class="symbol">    Car:</span> &#123;</span><br><span class="line"><span class="symbol">        screen:</span> CarTab,</span><br><span class="line"><span class="symbol">        navigationOptions:</span> (&#123; navigation &#125;) =&gt; (&#123;</span><br><span class="line">            // 参数参考上面例子  </span><br><span class="line">        &#125;),</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line"><span class="symbol">    Profile:</span> &#123;</span><br><span class="line"><span class="symbol">        screen:</span> ProfileTab,</span><br><span class="line"><span class="symbol">        navigationOptions:</span> (&#123; navigation &#125;) =&gt; (&#123;</span><br><span class="line">            // 参数参考上面例子</span><br><span class="line">        &#125;),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const tabNavigatorConfig = &#123;</span><br><span class="line"><span class="symbol">        tabBarPosition:</span> <span class="string">'bottom'</span>,</span><br><span class="line"><span class="symbol">        swipeEnabled:</span> true,</span><br><span class="line"><span class="symbol">        animationEnabled:</span> false,</span><br><span class="line"><span class="symbol">        lazy:</span> true,</span><br><span class="line"><span class="symbol">        initialRouteName:</span> <span class="string">'Profile'</span>,</span><br><span class="line"><span class="symbol">        order:</span> ([<span class="string">'Profile'</span>, <span class="string">'Home'</span>, <span class="string">'Car'</span>]),</span><br><span class="line"><span class="symbol">        backBehavior:</span> <span class="string">'none'</span>,</span><br><span class="line"><span class="symbol">        tabBarOptions:</span>&#123;</span><br><span class="line">            //参数参考上面例子</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const Tab=TabNavigator(tabRouteConfigs,tabNavigatorConfig)</span><br><span class="line"></span><br><span class="line">export default class Tabs <span class="keyword">extends </span>Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;Tab /&gt;</span><br><span class="line">        )<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="页面使用DrawerNavigator抽屉"><a href="#页面使用DrawerNavigator抽屉" class="headerlink" title="页面使用DrawerNavigator抽屉"></a>页面使用DrawerNavigator抽屉</h3><pre><code><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">   const drawerRouteConfigs = &#123;</span><br><span class="line">// 该参数参照StackNavigator  RouteConfigs的设置</span><br><span class="line"><span class="keyword">scr1: </span>&#123;</span><br><span class="line"><span class="symbol">    screen:</span> <span class="keyword">scr1,</span></span><br><span class="line"><span class="keyword"> </span>   navigationOptions: () =&gt; (&#123;</span><br><span class="line">    // 参照上面StackNavigator  RouteConfigs的设置</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="keyword">scr2: </span>&#123;</span><br><span class="line"><span class="symbol">    screen:</span> <span class="keyword">scr2,</span></span><br><span class="line"><span class="keyword"> </span>   navigationOptions: () =&gt; (&#123;</span><br><span class="line">    // 参照上面StackNavigator  RouteConfigs的设置</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="keyword">scr3: </span>&#123;</span><br><span class="line"><span class="symbol">    screen:</span> <span class="keyword">scr3,</span></span><br><span class="line"><span class="keyword"> </span>   navigationOptions: () =&gt; (&#123;</span><br><span class="line">    // 参照上面StackNavigator  RouteConfigs的设置</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const drawerNavigatorConfig = &#123;</span><br><span class="line">// 配置抽屉内容</span><br><span class="line"><span class="symbol">contentOptions:</span> &#123;</span><br><span class="line">    // 活动标签的标签和图标颜色</span><br><span class="line"><span class="symbol">    activeTintColor:</span> <span class="string">'blue'</span>,</span><br><span class="line"></span><br><span class="line">    // 活动标签的背景颜色</span><br><span class="line"><span class="symbol">    activeBackgroundColor:</span> <span class="string">'#f2f2f2'</span>,</span><br><span class="line"></span><br><span class="line">    // 非活动标签的标签和图标颜色</span><br><span class="line"><span class="symbol">    inactiveTintColor:</span> <span class="string">'#fff'</span>,</span><br><span class="line"></span><br><span class="line">    // 不活动标签的背景颜色</span><br><span class="line"><span class="symbol">    inactiveBackgroundColor:</span> <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line"></span><br><span class="line">    // // 按下某个项目时调用的函数</span><br><span class="line">    // onItemPress: (route) =&gt; &#123;</span><br><span class="line">    //   console.log(route)</span><br><span class="line">    // &#125;,</span><br><span class="line"></span><br><span class="line">    // 内容部分的样式对象</span><br><span class="line"><span class="symbol">    itemsContainerStyle:</span> &#123;&#125;,</span><br><span class="line"></span><br><span class="line">    // 单个项目的样式对象，可以包含一个图标和/或一个标签</span><br><span class="line"><span class="symbol">    itemStyle:</span> &#123;&#125;,</span><br><span class="line"></span><br><span class="line">    // 当你的标签是一个字符串时，样式对象覆盖内容部分的样式Text</span><br><span class="line"><span class="symbol">    labelStyle:</span> &#123;&#125;,</span><br><span class="line"></span><br><span class="line">    // 样式对象覆盖图标容器样式。View</span><br><span class="line"><span class="symbol">    iconContainerStyle:</span> &#123;&#125;</span><br><span class="line">&#125;,</span><br><span class="line">// // 抽屉内容组件</span><br><span class="line"><span class="symbol">contentComponent:</span> (CustomDrawerContentComponent),</span><br><span class="line"></span><br><span class="line">// // 抽屉的宽度或返回它的函数</span><br><span class="line">// drawerWidth: Dimensions.get('window').width - 80,</span><br><span class="line"></span><br><span class="line">// // 抽屉显示的位置</span><br><span class="line">// drawerPosition: 'left',</span><br><span class="line"></span><br><span class="line">// // 启用本地动画。默认是。true</span><br><span class="line">// useNativeAnimations: true,</span><br><span class="line"></span><br><span class="line">// // 使用抽屉背景的某种颜色。默认是。white</span><br><span class="line">// drawerBackgroundColor: '#fff',</span><br><span class="line"></span><br><span class="line">// // 设置堆栈的默认屏幕。必须匹配路由配置中的一个键</span><br><span class="line">// //  initialRouteName: 'Home',</span><br><span class="line"></span><br><span class="line">// // 当Android点击返回键的时候，做的处理，initialRoute返回到初始化的界面，none退出应用</span><br><span class="line">// backBehavior: 'none',</span><br><span class="line"></span><br><span class="line">// // 定义选项卡顺序的routeNames数组。 默认可不写</span><br><span class="line">// // order: ['Home', 'Contact', 'Dynamic',],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const drawer = DrawerNavigator(drawerRouteConfigs, drawerNavigatorConfig)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export const AppNavigation = StackNavigator(&#123;</span><br><span class="line"><span class="symbol">Main:</span> &#123;</span><br><span class="line"><span class="symbol">    screen:</span> drawer,</span><br><span class="line"><span class="symbol">    path:</span> <span class="string">'/'</span>,</span><br><span class="line"><span class="symbol">    navigationOptions:</span> (&#123; navigation &#125;) =&gt; (&#123;</span><br><span class="line"><span class="symbol">    header:</span> null,</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">//screen </span><br><span class="line">// ...MyOtherRoutes,</span><br><span class="line"></span><br><span class="line">&#125;,stackNavigatorConfig)</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="navigation-解释"><a href="#navigation-解释" class="headerlink" title="navigation 解释"></a>navigation 解释</h3><ul>
+<li>在StackNavigator中注册后的组件都有navigation这个属性.navigation又有5个参数:navigate,goBack,state,setParams,dispatch,可以在组件下console.log一下this.props就能看到</li>
+<li>this.props.navigation.navigate(‘routeName’, {params:params}, action): push下一个页面<ul>
+<li>routeName: 注册过的目标路由名称 string</li>
+<li>params: 传递的参数 props</li>
+<li>action: 集成redux dispatch 一个action</li>
+</ul>
+</li>
+<li>this.props.navigation.goBack(): 返回上一页</li>
+<li>this.props.navigation.state:每个界面通过这去访问它的router，state其中包括了：<ul>
+<li>routeName: 路由名</li>
+<li>key: 路由身份标识</li>
+<li>params: props参数</li>
+</ul>
+</li>
+<li>this.props.navigation.setParams: 该方法允许界面更改router中的参数，可以用来动态的更改导航栏的内容</li>
+<li><p>this.props.navigation.dispatch: 可以dispatch一些action，主要支持的action有：</p>
+<ul>
+<li><p>Navigate:</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    import &#123; NavigationActions &#125; from <span class="string">'react-navigation'</span></span><br><span class="line"></span><br><span class="line">    const navigationAction = NavigationActions.navigate(&#123;</span><br><span class="line"><span class="symbol">    routeName:</span> <span class="string">'Profile'</span>,</span><br><span class="line"><span class="symbol">    params:</span> &#123;&#125;,</span><br><span class="line"></span><br><span class="line">    // navigate can have a nested navigate action that will be run inside the child router</span><br><span class="line"><span class="symbol">    action:</span> NavigationActions.navigate(&#123; routeName: <span class="string">'SubProfileRoute'</span>&#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">this.props.navigation.<span class="keyword">dispatch(navigationAction)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SetParams:为指定的router更新参数，该参数必须是已经存在于router的param中</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  import &#123; NavigationActions &#125; from <span class="string">'react-navigation'</span></span><br><span class="line"></span><br><span class="line">const setParamsAction = NavigationActions.setParams(&#123;</span><br><span class="line">  params: &#123;&#125;, // these are the new params that will be merged into the existing route params</span><br><span class="line">  // The key of the route that should get the new params</span><br><span class="line"><span class="symbol">  key:</span> <span class="string">'screen-123'</span>,</span><br><span class="line">&#125;)</span><br><span class="line">this.props.navigation.<span class="keyword">dispatch(setParamsAction)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Reset:Reset方法会清除原来的路由记录，添加上新设置的路由信息, 可以指定多个action，index是指定默认显示的那个路由页面</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> import &#123; NavigationActions &#125; from <span class="string">'react-navigation'</span></span><br><span class="line"></span><br><span class="line">const resetAction = NavigationActions.reset(&#123;</span><br><span class="line"><span class="symbol">  index:</span> <span class="number">0</span>,</span><br><span class="line"><span class="symbol">  actions:</span> [</span><br><span class="line">    NavigationActions.navigate(&#123; routeName: <span class="string">'Profile'</span>&#125;),</span><br><span class="line">    NavigationActions.navigate(&#123; routeName: <span class="string">'Two'</span>&#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line">this.props.navigation.<span class="keyword">dispatch(resetAction)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react-native/" rel="tag"># react-native</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/31/git/" rel="next" title="git的使用">
+                <i class="fa fa-chevron-left"></i> git的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/31/storage/" rel="prev" title="React-Native 异步存储storage">
+                React-Native 异步存储storage <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/source/images/avatar.JPG"
+                alt="ZhouHong" />
+            
+              <p class="site-author-name" itemprop="name">ZhouHong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Navigation"><span class="nav-number">1.</span> <span class="nav-text">React-Navigation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面使用时创建一个StackNavigator-，最常见的底部切换"><span class="nav-number">2.</span> <span class="nav-text">页面使用时创建一个StackNavigator ，最常见的底部切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StackNavigatorConfig说明"><span class="nav-number">3.</span> <span class="nav-text">StackNavigatorConfig说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器的选项："><span class="nav-number">3.1.</span> <span class="nav-text">路由器的选项：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视觉选项："><span class="nav-number">3.2.</span> <span class="nav-text">视觉选项：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen-navigationOptions-屏幕导航参数说明"><span class="nav-number">3.3.</span> <span class="nav-text">Screen navigationOptions 屏幕导航参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面使用TabNavigator-标签栏"><span class="nav-number">3.4.</span> <span class="nav-text">页面使用TabNavigator 标签栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面使用DrawerNavigator抽屉"><span class="nav-number">3.5.</span> <span class="nav-text">页面使用DrawerNavigator抽屉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#navigation-解释"><span class="nav-number">3.6.</span> <span class="nav-text">navigation 解释</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhouHong<br>Copyright © 豫ICP备18033109号-1</span>
+
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

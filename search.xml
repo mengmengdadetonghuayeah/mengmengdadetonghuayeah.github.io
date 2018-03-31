@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Redux]]></title>
+    <url>%2F2018%2F03%2F31%2Fredux%2F</url>
+    <content type="text"><![CDATA[React-Redux认识Redux 安装 12npm install --save reduxnpm install --save react-redux 一句话理解redux应用中的所有state都以一个对象数树的方式存储在一个单一的store中，唯一改变state的方法就是触发action，一个描述发生什么的对象，为了描述action如何改变state树，需要编写reducers。 什么是actionAction本质上是JavaScript的普通对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。多数情况下type会被定义成字符串常量。我们应该尽量减少在actin中传递数据。 12345678910 Action：export const ADD = &apos;ADD&apos;export const add = () =&gt; (&#123; type: ADD&#125;)export const SUB = &apos;SUB&apos;export const sub = () =&gt; (&#123; type: SUB&#125;) 什么是reducer 设计state结构 action处理reducer是一个纯函数，接受旧的state和action，返回新的state。注意: 每个 reducer 只负责管理全局 state 中它负责的一部分。每个 reducer 的 state 参数都不同，分别对应它管理的那部分 state 数据。12345678910111213 Reducer：import &#123; ADD, SUB &#125; from &apos;Action&apos;const counter = (state = 0, action) =&gt; &#123; switch (action.type) &#123; case ADD: return state + 1 case SUB: return state - 1 default: return state &#125;&#125; 总结：把要做的修改变成一个普通对象，这个对象叫做action，而不是直接修改state。然后编写专门的函数来决定每个action如何改变应用的state，这个函数叫做reducer。]]></content>
+      <categories>
+        <category>redux</category>
+      </categories>
+      <tags>
+        <tag>reudx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python安装以及使用]]></title>
+    <url>%2F2018%2F03%2F31%2Fpython%2F</url>
+    <content type="text"><![CDATA[python安装 brew install python3Mac OS自身其实已经带有Python，版本为2.7.X，这个Python主要用于支持系统文件和XCode，所以我们在安装新的Python版本时候最好不要影响这部分。目前的Python3其实已经集成了pip，所以不需要再重新安装，如果是之前的版本，可以百度一下pip相关的安装方法，比较简单，这里不再赘述。一个需要注意的地方，和上述讲道的问题一样，由于系统自身的Python版本并行存在，我们使用pip的时候也需要将pip命令换成用pip3这个命令。创建虚拟环境 进入项目根目录下python3 -m venv test 创建了一个虚拟的python3中的test文件夹cd test 进入虚拟环境source bin/activate pip install 你需要的东西 开始 do something]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[配置nginx]]></title>
+    <url>%2F2018%2F03%2F31%2Fnginx%2F</url>
+    <content type="text"><![CDATA[配置nginx命令 远程登录服务器 使用ssh命令ssh dev@39.106.111.163 注意使用dev不要使用root 进入nginx中 cd /etc/nginx cd sites-avaliable 新建一个conf配置文件 在现有的conf文件中拷贝一份 cp 现有的某个.conf配置文件 自己新建的文件名字.conf 例如 cp web.conf esharing.conf 过程中遇到权限问题 请使用sudo!! 先开放你新建的conf的权限命令 chmod 777 ehsharing.conf 打开新建的conf文件修改server下面的listen监听端口改为80 server name域名和root路径起好域名vi esharing.conf 通过i命令实现修改 修改之后点击esc然后:wq保存 建立软连接cd sites-avaliableln -s 源文件目录 建立软连接的目录例如 ln -s /etc/nginx/sites-available/esharing.conf /etc/nginx/sites-enables/esharing.conf 你配置的conf中的root路径如果不存在需要新建一个例如 你配置的路径为/data/esharing/web命令为 cd /data/esharing/ mkdir web]]></content>
+      <categories>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[命令行]]></title>
+    <url>%2F2018%2F03%2F31%2Fcommand%2F</url>
+    <content type="text"><![CDATA[上传至服务器的方法123456789&lt;!--上传至服务器的方法 package.json--&gt;1. npm run build or yarn build 2. cd build 3. scp -r ./* root@111.111.111.11:/data/web/edung4: input password:密码 命令行命令 ls -a 查看隐藏文件 pwd 查看当前所在目录 mv 移动 12&lt;!--移动到桌面--&gt;~/Documents/play » mv dz.md ~/Desktop cp 复制 12 &lt;!--从桌面复制到当前目录下--&gt;~/Documents/play » cp ~/Desktop/dz.md . 命令行使用vi123456789输入 vi file.dz 进行编辑&lt;!--保存vi --&gt;先按esc 退出编辑 再按 shift + ； 出现一个冒号，再按wq 保存退出&lt;!--修改但不保存vi--&gt;先按esc 退出编辑 再按 shift + ； 出现一个冒号，再按q!]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+      <tags>
+        <tag>other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Yarn]]></title>
+    <url>%2F2018%2F03%2F31%2Fyarn%2F</url>
+    <content type="text"><![CDATA[安装MacOS 你可以通过 Homebrew 包管理器安装 Yarn，如果没有安装 Node.js 它也可以安装 1brew install yarn 如果您使用 nvm 或类似的东西，您应该排除安装 Node.js 以便使用 nvm 的 Node.js 版本。 1brew install yarn --without-node 您可以通过 MacPorts 安装 Yarn。 如果您未安装 Node.js，这也为您安装它。 1sudo port install yarn 路径设置如果您选择手动安装，用以下步骤添加 Yarn 到 path 变量，使其可以随处运行。 注意：您的配置文件可能是您的 .profile、.bash_profile、.bashrc、.zshrc 等。 将此项加入您的配置文件: “export PATH=”$PATH:/opt/yarn-[version]/bin“ （路径可能根据您安装Yarn的位置而有差异） 在终端中，登录并登出以使更改生效 为全局访问 Yarn的可执行文件，您需要在您的终端中设置 PATH 环境变量。 若要执行此操作，请添加”export PATH=”$PATH:yarn global bin“ 到您的配置文件。 升级 Yarn 如果有新版本可用，Yarn 将会提醒。 若要升级 Yarn，您可以使用 Homebrew 来完成。 1brew upgrade yarn 运行命令来测试 Yarn 是否安装： 1yarn --version 使用 现在Yarn已经 安装完毕，可以开始使用。以下是一些你需要的最常用的命令： 初始化新项目 1yarn init 添加依赖包 123yarn add [package]yarn add [package]@[version]yarn add [package]@[tag] 将依赖项添加到不同依赖项类别 分别添加到devDependencies、peerDependencies和optionalDependencies: 123 arn add [package] --devyarn add [package] --peeryarn add [package] --optional 升级依赖包 123 yarn upgrade [package]yarn upgrade [package]@[version]yarn upgrade [package]@[tag] 移除依赖包 1yarn remove [package] 安装项目的全部依赖yarn或者yarn install]]></content>
+      <categories>
+        <category>Yarn</category>
+      </categories>
+      <tags>
+        <tag>Yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[环境配置：React Native 开发环境配置]]></title>
+    <url>%2F2018%2F03%2F31%2Freact-native%2F</url>
+    <content type="text"><![CDATA[环境配置：React Native 开发环境配置React Native 是FaceBook开源的一个项目，FaceBook希望可以用写 Web App 的方式去写 Native App。它可以让我们用JS和React来开发应用，使用React Native可以通吃Android 和 IOS ,以及Web,仅仅需要一份业务逻辑代码就可以来创建我们的应用。 起源React Native 是由 React 衍生出来的，而 React 起源于 Facebook 的内部项目，因为FaceBook对市场上所有 JavaScript MVC 框架，都不太满意，就决定自己写一套，用来架设自己的 Instagram 的网站。等做出来以后，发现这套东西很不错，而且好用，就在2013年5月开源了。 而衍生的 React Native 项目，希望用写 Web App 的方式去写 Native App。这样同一组人只需要写一次 UI ，就能同时运行在服务器、浏览器和手机上。FaceBook最早发布的关于React Native是针对IOS的，而React Native for Android是在去年也就是2015年9月15日开源发布的。现阶段React Native的体验虽然已经很不错了，很接近原生应用的体验。 环境搭建macbook，所以这次环境搭建是根据mac电脑来说的。 Homebrew安装Homebrew是一款自由及开放源代码的软件包管理系统，用以简化Mac OS X系统上的软件安装过程，Homebrew以Ruby语言写成，针对于Mac OS X操作系统自带Ruby的版本。默认安装在/usr/local，由一个核心git版本库构成，以使用户能更新Homebrew。是 OS X 不可或缺的套件管理器。安装之前，你可以先检查一下电脑上是否已经安装了Homebrew，检查方式如下：在终端执行下列命令：1brew -v 如果已经安装了，终端会显示版本号。如果没有安装，那就可以用下面这种方式，进行安装，在终端上直接输入下面的命令即可：1ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" Node.js的安装Node.js®是一个基于Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。Node.js 之生态系统是目前最大的开源包管理系统。我们都知道React Native是需要使用js开发的，所以Node.js是必不可少的安装。安装Node.js也很简单，如下：1nvm install node &amp;&amp; nvm alias default node 可能你发现了，在Terminal终端上使用的命令是nvm，如果你没有安装nvm是会提示command not found的，所以我们还得先安装nvm。 安装watchman 和 flow Watchman 是 facebook 的一个开源项目，它开源用来监视文件并且记录文件的改动情况，当文件变更它可以触发一些操作,例如执行一些命令等等。 flow是一个Javascript静态类型检查器。Flow为Javascript添加了静态类型检查，以提高开发效率和代码质量。安装方式如下： 12brew install watchmanbrew install flow 安装React Native我们使用npm进行安装，如下： 1npm install -g react-native-cli 安装完React Native之后，要想运行或者初始化一个项目，然后运行到模拟器或者真机，我们需要搭建一个Android或者ios开发环境，我这里只介绍android，相信想学习React Native的同学，电脑上都基本上有了Android的开发环境。但是可能会有坑，有一个大坑就是得配置SDK的环境变量：ANDROID_HOME。 SDK环境变量的配置 启动Terminal终端工具 输入cd ~/ 进入当前用户的home目录 创建 1touch .bash_profile 打开并编辑： 1open .bash_profile 在文件中写入以下内容：export PATH=${PATH}:/Users/loonggg/Application/android-sdk-mac_x86/tools:/Users/loonggg/Application/android-sdk-mac_x86/platform-tools友情提示：上述路径，请换成自己电脑上的SDK所在路径 执行如下命令： 1source .bash_profile 验证：输入adb回车。如果未显示command not found，说明此命令有效，环境便亮设置完成。 创建我们的第一个React Native应用初始化项目 1react-native init AwesomeProject 上面的AwesomeProject这个项目名字，你可以自己随意定义，自己命名，没有限制。 运行项目 切换到AwesomeProject的主目录 运行项目命令 12react-native run-androidreact-native run-ios 我们使用编辑器打开和修改app.js文件，调出模拟器菜单键，选择重新载入 js 即可看到变化。到这里我们就把环境配置讲完了。]]></content>
+      <categories>
+        <category>react-native</category>
+      </categories>
+      <tags>
+        <tag>react-native</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[React-Native 异步存储storage]]></title>
+    <url>%2F2018%2F03%2F31%2Fstorage%2F</url>
+    <content type="text"><![CDATA[React-Native 异步存储storage封装操作RNstorage的函数123456789101112131415161718192021222324252627282930313233 &lt;!-- storage.js --&gt;import &#123; AsyncStorage &#125; from 'react-native'async function save(key, value) &#123; try &#123; // console.log("Set item: %s, %o", key, value) await AsyncStorage.setItem(key, value) &#125; catch (error) &#123; // console.log("Set item fail %o", error) &#125;&#125;async function query(key) &#123; try &#123; // console.log("Get item: %s", key) let value = await AsyncStorage.getItem(key) return value &#125; catch (error) &#123; // console.log("Get item fail %o", error) &#125;&#125;async function remove(key) &#123; try &#123; // console.log("Remove item: %s", key) await AsyncStorage.removeItem(key) &#125; catch (error) &#123; // console.log("Remove item fail %o", error) &#125;&#125;export &#123; save, query, remove &#125; 存、取、删的使用 123456789101112131415161718192021 import &#123; save, query, remove &#125; from'./storage'&lt;!-- 存 --&gt;save('localSave', JSON.stringify(response.user)) /**存储时要转为JSON字符串*/&lt;!-- 取 --&gt;async function name() &#123; let localSave = await query('localSave') /*存储的localSave */&#125; name()/**使用时 取出的数据要处理下 JSON.parse(localSave)*/&lt;!-- 删出storage的函数--&gt;async function rmFun() &#123; remove('token') remove('users')&#125;]]></content>
+      <categories>
+        <category>react-native</category>
+      </categories>
+      <tags>
+        <tag>react-native</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[react-navigation]]></title>
+    <url>%2F2018%2F03%2F31%2Freact-navigation%2F</url>
+    <content type="text"><![CDATA[React-Navigation npm or yarn install React-navigation12npm install react-navigation --save oryarn add react-navigation 使用react-navigation 必须创建导航器，react-navigation自带三种导航器 StackNavigator - 为您的应用程序在每个新屏幕放置在堆栈之上的屏幕之间进行切换 TabNavigator -用于设置多个选项卡的屏幕(tab) DrawerNavigator -用于设置带抽屉导航的屏幕 页面使用时创建一个StackNavigator ，最常见的底部切换StackNavigatorConfig说明路由器的选项： initialRouteName：设置堆栈的默认屏幕。必须匹配路由配置中的一个键。 initialRouteParams：初始路线的参数 navigationOptions：用于屏幕的默认导航选项 paths：覆盖路由配置中设置的路径的映射 视觉选项： mode：定义渲染和转换的风格： card：使用标准的iOS和Android屏幕转换。这是默认的。 modal：使屏幕从底部滑入，这是一种常见的iOS模式。只适用于iOS，对Android没有任何影响。 headerMode：指定如何呈现标题： float：在屏幕更改时渲染保留在顶部的单个标题和动画。这是iOS上的常见模式。 screen：每个屏幕都有一个标题，标题与屏幕一起淡入淡出。这是Android上的常见模式。 none：没有标题将被渲染。 cardStyle：使用这个道具覆盖或扩展堆栈中单个卡的默认样式。 itransitionConfig：返回与默认屏幕转换合并的对象的函数（查看类型定义中的TransitionConfig ）。提供的函数将传递以下参数： transitionProps：新屏幕的过渡道具。 prevTransitionProps：过渡屏幕的道具。 isModal：指定屏幕是模态的布尔值。 onTransitionStart：卡转换动画即将开始时调用的函数。 onTransitionEnd：卡转换动画完成后调用的函数。 Screen navigationOptions 屏幕导航参数说明 title：可以用作回退的字符串。此外，将用作（如果嵌套在TabNavigator中）或（如果嵌套在DrawerNavigator中） headerTitle tabBarLabel drawerLabel header：React元素或给定的函数返回React元素，显示为标题。设置为隐藏标题。Header：null headerTitle：字符串，React元素或React组件使用的标题。默认为上一级组件的名称。 headerTitleAllowFontScaling：标题标题字体是否应缩放以尊重文本大小可访问性设置。默认为true。 headerBackTitle：iOS上后退按钮使用的标题字符串，或禁用标签。默认为前一个场景的名称。隐藏设置为null headerTruncatedBackTitle：后退按钮使用的标题字符串不适合屏幕时。默认。headerBackTitle是”Back” headerRight:React元素显示在标题的右侧。 headerLeft：React元素或组件显示在标题的左侧。当使用的成分。 headerStyle：标题的样式obj headerTitleStyle：标题组件的样式obj headerBackTitleStyle：组件返回字体标题的样式obj headerTintColor：头部的颜色 headerPressColorAndroid：材质纹波的颜色（仅适用于Android&gt; = 5.0） gesturesEnabled：是否可以使用手势来消除此屏幕。在iOS上默认为true，在Android上为false。 gestureResponseDistance：对象覆盖从屏幕边缘开始触摸的距离，以识别手势。它具有以下属性： horizontal- 数字 - 水平方向的距离。默认为25。 vertical- 数字 - 垂直方向的距离。默认为135。 gestureDirection：string 来覆盖关闭手势的方向。正常行为或从右向左滑动。default、inverted 页面使用TabNavigator 标签栏1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950/** TabNavigator */import &#123; TabNavigator, TabBarBottom, TabBarTop &#125; from 'react-navigation';const tabRouteConfigs = &#123; Home: &#123; screen: HomeTab, navigationOptions: (&#123; navigation &#125;) =&gt; (&#123; // 参数参考上面例子 &#125;), &#125;, Car: &#123; screen: CarTab, navigationOptions: (&#123; navigation &#125;) =&gt; (&#123; // 参数参考上面例子 &#125;), &#125;, Profile: &#123; screen: ProfileTab, navigationOptions: (&#123; navigation &#125;) =&gt; (&#123; // 参数参考上面例子 &#125;), &#125;&#125;const tabNavigatorConfig = &#123; tabBarPosition: 'bottom', swipeEnabled: true, animationEnabled: false, lazy: true, initialRouteName: 'Profile', order: (['Profile', 'Home', 'Car']), backBehavior: 'none', tabBarOptions:&#123; //参数参考上面例子 &#125;&#125;const Tab=TabNavigator(tabRouteConfigs,tabNavigatorConfig)export default class Tabs extends Component &#123; render() &#123; return ( &lt;Tab /&gt; ); &#125;&#125; 页面使用DrawerNavigator抽屉1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798 const drawerRouteConfigs = &#123;// 该参数参照StackNavigator RouteConfigs的设置scr1: &#123; screen: scr1, navigationOptions: () =&gt; (&#123; // 参照上面StackNavigator RouteConfigs的设置 &#125;)&#125;,scr2: &#123; screen: scr2, navigationOptions: () =&gt; (&#123; // 参照上面StackNavigator RouteConfigs的设置 &#125;)&#125;,scr3: &#123; screen: scr3, navigationOptions: () =&gt; (&#123; // 参照上面StackNavigator RouteConfigs的设置 &#125;)&#125;,&#125;const drawerNavigatorConfig = &#123;// 配置抽屉内容contentOptions: &#123; // 活动标签的标签和图标颜色 activeTintColor: 'blue', // 活动标签的背景颜色 activeBackgroundColor: '#f2f2f2', // 非活动标签的标签和图标颜色 inactiveTintColor: '#fff', // 不活动标签的背景颜色 inactiveBackgroundColor: 'rgba(0,0,0,0)', // // 按下某个项目时调用的函数 // onItemPress: (route) =&gt; &#123; // console.log(route) // &#125;, // 内容部分的样式对象 itemsContainerStyle: &#123;&#125;, // 单个项目的样式对象，可以包含一个图标和/或一个标签 itemStyle: &#123;&#125;, // 当你的标签是一个字符串时，样式对象覆盖内容部分的样式Text labelStyle: &#123;&#125;, // 样式对象覆盖图标容器样式。View iconContainerStyle: &#123;&#125;&#125;,// // 抽屉内容组件contentComponent: (CustomDrawerContentComponent),// // 抽屉的宽度或返回它的函数// drawerWidth: Dimensions.get('window').width - 80,// // 抽屉显示的位置// drawerPosition: 'left',// // 启用本地动画。默认是。true// useNativeAnimations: true,// // 使用抽屉背景的某种颜色。默认是。white// drawerBackgroundColor: '#fff',// // 设置堆栈的默认屏幕。必须匹配路由配置中的一个键// // initialRouteName: 'Home',// // 当Android点击返回键的时候，做的处理，initialRoute返回到初始化的界面，none退出应用// backBehavior: 'none',// // 定义选项卡顺序的routeNames数组。 默认可不写// // order: ['Home', 'Contact', 'Dynamic',],&#125;const drawer = DrawerNavigator(drawerRouteConfigs, drawerNavigatorConfig)export const AppNavigation = StackNavigator(&#123;Main: &#123; screen: drawer, path: '/', navigationOptions: (&#123; navigation &#125;) =&gt; (&#123; header: null, &#125;)&#125;,//screen // ...MyOtherRoutes,&#125;,stackNavigatorConfig) navigation 解释 在StackNavigator中注册后的组件都有navigation这个属性.navigation又有5个参数:navigate,goBack,state,setParams,dispatch,可以在组件下console.log一下this.props就能看到 this.props.navigation.navigate(‘routeName’, {params:params}, action): push下一个页面 routeName: 注册过的目标路由名称 string params: 传递的参数 props action: 集成redux dispatch 一个action this.props.navigation.goBack(): 返回上一页 this.props.navigation.state:每个界面通过这去访问它的router，state其中包括了： routeName: 路由名 key: 路由身份标识 params: props参数 this.props.navigation.setParams: 该方法允许界面更改router中的参数，可以用来动态的更改导航栏的内容 this.props.navigation.dispatch: 可以dispatch一些action，主要支持的action有： Navigate: 1234567891011 import &#123; NavigationActions &#125; from 'react-navigation' const navigationAction = NavigationActions.navigate(&#123; routeName: 'Profile', params: &#123;&#125;, // navigate can have a nested navigate action that will be run inside the child router action: NavigationActions.navigate(&#123; routeName: 'SubProfileRoute'&#125;)&#125;)this.props.navigation.dispatch(navigationAction) SetParams:为指定的router更新参数，该参数必须是已经存在于router的param中 12345678 import &#123; NavigationActions &#125; from 'react-navigation'const setParamsAction = NavigationActions.setParams(&#123; params: &#123;&#125;, // these are the new params that will be merged into the existing route params // The key of the route that should get the new params key: 'screen-123',&#125;)this.props.navigation.dispatch(setParamsAction) Reset:Reset方法会清除原来的路由记录，添加上新设置的路由信息, 可以指定多个action，index是指定默认显示的那个路由页面 12345678910 import &#123; NavigationActions &#125; from 'react-navigation'const resetAction = NavigationActions.reset(&#123; index: 0, actions: [ NavigationActions.navigate(&#123; routeName: 'Profile'&#125;), NavigationActions.navigate(&#123; routeName: 'Two'&#125;) ]&#125;)this.props.navigation.dispatch(resetAction)]]></content>
+      <categories>
+        <category>react-native</category>
+      </categories>
+      <tags>
+        <tag>react-native</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git的使用]]></title>
+    <url>%2F2018%2F03%2F31%2Fgit%2F</url>
+    <content type="text"><![CDATA[git是什么 Git是分布式版本控制系统。 分布式管理系统：没有中央服务器。每个人的电脑就是一个完整的版本库，不需联网。因为版本都是在自己的电脑上。两两之间需把各自的修改推送给对方，就可互相看到。 git用来干什么 创建项目的过程中，保存各个阶段的项目内容，便于管理查看对比。 如何安装 在Mac OS X上安装Git 安装homebrew，然后通过homebrew安装Git。 直接从AppStore安装Xcode，Xcode集成了Git，不过默认没有安装，你需要运行Xcode，选择菜单“Xcode”-&gt;“Preferences”，在弹出窗口中找到“Downloads”，选择“Command Line Tools”，点“Install”就可以完成安装了。 使用 创建版本库（仓库）$ mkdir study //创建一个文件夹用于建造仓库 举例文件夹叫 study$ cd study //进入该文件夹$ git init //把这个目录变成Git可以管理的仓库$ git add read.txt //举例添加 read.text 也可以添加其他，或者添加全部 $ git add .$ git commit -m “add a text” //用 git commit 告诉Git把文件提交到仓库。-m 指本次提交的说明，可写任意内容，最好是有意义的。 管理文件$ git status //显示仓库当前的状态 例如文件是否被修改过，文件是否上传了$ git diff study.txt //查看某个文件修改了什么 diff=difference$ git log //显示从最近到最远的提交日志 最近的一次 append GPL，上一次是add distributed，最早的一次是wrote a readme file。$ git log –pretty=oneline //上一条指令如果嫌输出信息太多,可以试试这句话，显示十六进制表示commit id$ git reset –hard HEAD^ //回退到上一个版本$ git checkout – study.txt //文件在工作区的修改全部撤销$ git reflog //记录你的每一次命令 在Git中，用 HEAD 表示当前版本，HEAD^ 为上一个版本，HEAD^^ 为上上一个版本，HEAD~100 往上100个版本，以此类推。 工作区 版本库 暂存区概念（很重要） 工作区：就是指你存放git仓库的那个文件夹 版本库：工作区有一个隐藏目录.git，指Git的版本库。 暂存区：在版本库里，文件提交到(commi)t到master分支之前，暂时存放的地方。版本库里有很多东西，主要有暂存区(state)，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。$ git add read.txt //这一步把文件传到了暂存区$ git commit -m “add a text” //这一步把文件传到了master 文件先到暂存区，再到分支。非暂存区的东西不能上传到分支。 修改管理 Git跟踪并管理的是修改，而非文件。 修改是什么？ 比如你新增了一行，删除了一行， 更改了某些字符，删了一些又加了一些， 创建一个新文件等，就算是一个修改。 $ git checkout — read.txt //撤销你放入工作区的文件修改 $ git reset HEAD read.txt //撤销你git-add后的文件修改（前面提到过）$ git rm read.txt $ git commit -m “remove read.txt” //删除文件 远程仓库 分布式原理Git是分布式版本控制系统。同一个Git仓库，可以分布到不同的机器上。怎么分布呢？最早，只有一台机器有一个原始版本库，然后，别的机器可以“克隆”这个原始版本库。而且每台机器的版本库其实都是一样的。其实一台电脑上也是可以克隆多个版本库的，只要不在同一个目录下。现实生活中不会有人在一台电脑上搞几个远程库玩，完全没有意义。 实际应用实际中是找一台电脑充当服务器的角色，每天24小时开机，其他每个人都从这个“服务器”仓库克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交。 获得Git远程仓库完全可以自己搭建一台运行Git的服务器，有点难。现阶段可以利用gitlab或者github，这两个网站是提供Git仓库托管服务的，GitHab主要用于放置开源项目，默认上传项目为公开的，若要私有要收费。GitLab可以建立私有项目，适用于企业项目。所以有GitHub或者GitLab账号，就可以免费获得Git远程仓库。以下用GitLab举例本地Git仓库和GitLab仓库之间的传输是通过SSH加密的 添加远程库$ git remote add origin 粘贴GitLab里的ssh协议 //添加远程库$ git push -u origin master 弹出yes or no 的语句 输入yes //本地库的所有内容推送到远程库上弹出 yes or no 是SSH警告，询问你是否将该SSH加入信任列表，以后不会再询问。第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，以后就可以简化命令 $ git push origin master 即可。 从远程库克隆$ git clone 粘贴要复制项目的SSH／也可以是httpsGit支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。 分支管理 分支是什么？举个例子，就像是科幻世界的平行宇宙，当前的你在努力学习Git，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没影响。后来的某个时间点，两个平行宇宙合并了。结果，你既学会了Git又学会了SVN。 分支在实际中有什么用处？假设你在开发新功能，需要两周完成，第一周写了50%的代码。如果立刻提交，不完整的代码库会导致别人不能干活了。如果等代码全部写完再提交，又存在丢失每天进度的巨大风险。 分支的好处？有了分支，你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作。而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。 创建与合并分支每次提交，Git都把它们串成一条时间线，即一个分支。默认只有一条时间线，Git里叫主分支，即master分支。HEAD严格来说指向的就是当前分支。一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支及提交点。每次提交，master分支都会向前移动一步，随着不断提交，master分支的线也越来越长： 解决冲突创建一个feature1分支$ git checkout -b feature1Switched to a new branch ‘feature1’修改readone.txt在feature1分支上提交。$ git add readone.txt$ git commit -m “change title”切换到master分支：$ git checkout masterSwitched to branch ‘master’Git还会自动提示我们当前master分支比远程的master分支要超前1个提交。在master分支上，再次修改readone.txt并提交.$ git add readone.txt$ git commit -m “change title again”于是，master分支和feature1分支各自都分别有新的提交。$ git merge feature1 //合并分支 可能会有冲突Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容。修改好再次提交：$ git add readone.txt$ git commit -m “conflict fixed”用带参数的git log也可以看到分支的合并情况。$ git log –graph最后删除feature1分支$ git branch -d feature1]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gitlab简介]]></title>
+    <url>%2F2018%2F03%2F30%2Fgitlab%2F</url>
+    <content type="text"><![CDATA[gitlab简介 gitlab是一个用于仓库管理系统的开源项目，使用git作为代码管理工具，并在此基础上搭建起来的web服务。可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用。下载安装https://bitnami.com/stack/gitlab/installer gitlab的配置与使用 创建新项目（web） 登录gitlab网址成功后，点击左侧导航栏的projects，选择右侧New project选项。 在创建工程的页面，按照要求填写项目的名称和可见性等信息。 Project path：项目的路径 Project name：项目名称 Import prject from：从哪导入项目，提供Github/Bitbucket等几个选项 Description（项目的描述）：可选项，对项目的简单描述 添加和配置SSH公钥 .SSH的作用SSH（Secure Shell）是一种安全协议，在你的电脑与GitLab服务器进行通信时，我们使用SSH密钥（SSH Keys）认证的方式来保证通信安全。 创建 SSH密钥，并将密钥中的公钥添加到GitLab，以便我们通过SSH协议来访问Git仓库。SSH 密钥的创建需要在终端（命令行）环境下进行，我们首先进入命令行环境。通常在OS X和Linux平台下我们使用终端工具（Terminal），在Windows平台中，可以使用Git Bash工具，git客户端安装目录下git-bash.exe文件123$ zhouhongdeAir:~ zhouhong$ git config --global user.name "zhouhong" //修改你的用户名$ zhouhongdeAir:~ zhouhong$ git config --global user.email "zhouhong@dongwu-inc.com"//修改你的邮箱 $ zhouhongdeAir:~ zhouhong$ ssh-keygen -t rsa -C "你的邮箱地址" 获取SSH公钥信息 命令 1234$ zhouhongdeAir:~ zhouhong$ ls ~/.ssh 根目录查看是否有 ssh$ id_rsa id_rsa.pub 文件$ zhouhongdeAir:~ zhouhong$ cd id_ras.pub$ zhouhongdeAir:~ zhouhong$ cat ~/.ssh/id_rsa.pub 通过cat命令。在命令行中敲入cat ~/.ssh/id_rsa.pub ，回车执行后命令行界面中会显示id_rsa.pub文件里的内容，复制。 添加SSH公钥到gitlab 打开gitlab的profile Setting页面，选择SSH Keys 添加SSH公钥。填写Title和Key，其中Title是Key的描述信息，Key是上面复制的SSH公钥的内容，直接粘贴到输入框中保存即可。 导入项目 设置下git的用户名和邮箱在提交代码前，还需要设置下git的用户名和邮箱（最好用英文，不要出现中文），这样提交记录才会在gitlab上显示带有你名字的记录。在命令行窗口输入： 12git config --global user.name"your_name"git config --global user.email "your_email" 导新项目到gitlab上 如果项目存在，需要导入到gitlab可以通过命令行直接将项目导上去。 cd &quot;本地存在项目的路径&quot; 例如：cd reactStudy git init git add . 点表示当前目录下所有文件添加到暂存区，也可指定具体文件 git commit -m &apos;first git demo&apos; 把暂存区的所有内容提交到当前分支上 git remote add origin git@gitlab.com:USERNAME/PROJECTNAME.git （注：将USERNAME和PROJECTNAME替换成用户名和项目的名称） git push -u origin master 将改动提交到远程仓库 出现Are you sure you want to continue connecting (yes/no)?写yes 如果修改了文件夹的内容可使用终端命令如下 git add . git commit -m &quot;修改的内容&quot; git push]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>gitlab</tag>
+      </tags>
+  </entry>
+</search>
