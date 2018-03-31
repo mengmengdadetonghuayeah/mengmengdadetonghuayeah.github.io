@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="萌萌哒的童话">
-<meta property="og:url" content="http://zhouhongblog.com/tags/reudx/index.html">
+<meta name="description" content="配置nginx命令 远程登录服务器 使用ssh命令ssh dev@39.106.111.163 注意使用dev不要使用root 进入nginx中 cd /etc/nginx cd sites-avaliable 新建一个conf配置文件 在现有的conf文件中拷贝一份 cp 现有的某个.conf配置文件   自己新建的文件名字.conf 例如 cp web.conf esharing.conf 过">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置nginx">
+<meta property="og:url" content="http://zhouhongblog.com/2018/02/05/nginx/index.html">
 <meta property="og:site_name" content="萌萌哒的童话">
+<meta property="og:description" content="配置nginx命令 远程登录服务器 使用ssh命令ssh dev@39.106.111.163 注意使用dev不要使用root 进入nginx中 cd /etc/nginx cd sites-avaliable 新建一个conf配置文件 在现有的conf文件中拷贝一份 cp 现有的某个.conf配置文件   自己新建的文件名字.conf 例如 cp web.conf esharing.conf 过">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-31T10:50:02.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="萌萌哒的童话">
+<meta name="twitter:title" content="配置nginx">
+<meta name="twitter:description" content="配置nginx命令 远程登录服务器 使用ssh命令ssh dev@39.106.111.163 注意使用dev不要使用root 进入nginx中 cd /etc/nginx cd sites-avaliable 新建一个conf配置文件 在现有的conf文件中拷贝一份 cp 现有的某个.conf配置文件   自己新建的文件名字.conf 例如 cp web.conf esharing.conf 过">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://zhouhongblog.com/tags/reudx/"/>
+  <link rel="canonical" href="http://zhouhongblog.com/2018/02/05/nginx/"/>
 
 
 
 
 
-  <title>标签: reudx | 萌萌哒的童话</title>
+  <title>配置nginx | 萌萌哒的童话</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,54 +283,190 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>reudx<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/02/05/nginx/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouHong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="萌萌哒的童话">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/29/redux/" itemprop="url">
-              
-                <span itemprop="name">Redux</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">配置nginx</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-29T00:00:00+08:00"
-              content="2018-03-29" >
-          03-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-05T00:00:00+08:00">
+                2018-02-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="配置nginx命令"><a href="#配置nginx命令" class="headerlink" title="配置nginx命令"></a>配置nginx命令</h2><ul>
+<li>远程登录服务器 使用ssh命令ssh <a href="mailto:dev@39.106.111.163" target="_blank" rel="noopener">dev@39.106.111.163</a> 注意使用dev不要使用root</li>
+<li>进入nginx中 cd /etc/nginx</li>
+<li>cd sites-avaliable</li>
+<li>新建一个conf配置文件<br> 在现有的conf文件中拷贝一份<br> cp 现有的某个.conf配置文件   自己新建的文件名字.conf<br> 例如 cp web.conf esharing.conf</li>
+<li>过程中遇到权限问题 请使用sudo!!</li>
+<li>先开放你新建的conf的权限<br>命令 chmod 777 ehsharing.conf</li>
+<li>打开新建的conf文件<br>修改server下面的listen监听端口改为80 server name域名和root路径起好域名<br>vi esharing.conf 通过i命令实现修改 修改之后点击esc然后:wq保存</li>
+<li>建立软连接<br>cd sites-avaliable<br>ln -s 源文件目录 建立软连接的目录<br>例如 ln -s /etc/nginx/sites-available/esharing.conf   /etc/nginx/sites-enables/esharing.conf</li>
+<li>你配置的conf中的root路径如果不存在需要新建一个<br>例如 你配置的路径为/data/esharing/web<pre><code>命令为 cd /data/esharing/
+mkdir web
+</code></pre></li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/01/python/" rel="next" title="python安装以及使用">
+                <i class="fa fa-chevron-left"></i> python安装以及使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/29/redux/" rel="prev" title="Redux">
+                Redux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -333,6 +474,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -353,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -418,6 +572,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置nginx命令"><span class="nav-number">1.</span> <span class="nav-text">配置nginx命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -559,6 +729,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

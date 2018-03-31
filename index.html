@@ -293,469 +293,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/redux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZhouHong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="萌萌哒的童话">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/31/redux/" itemprop="url">Redux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T15:52:06+08:00">
-                2018-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/redux/" itemprop="url" rel="index">
-                    <span itemprop="name">redux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h2><h3 id="认识Redux"><a href="#认识Redux" class="headerlink" title="认识Redux"></a>认识Redux</h3><ul>
-<li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save redux</span><br><span class="line">npm install --save react-redux</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一句话理解redux<br>应用中的所有state都以一个对象数树的方式存储在一个单一的store中，唯一改变state的方法就是触发action，一个描述发生什么的对象，为了描述action如何改变state树，需要编写reducers。</p>
-</li>
-<li><p>什么是action<br>Action本质上是JavaScript的普通对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。多数情况下type会被定义成字符串常量。我们应该尽量减少在actin中传递数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  Action：</span><br><span class="line">export const ADD = &apos;ADD&apos;</span><br><span class="line">export const add = () =&gt; (&#123;</span><br><span class="line">    type: ADD</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export const SUB = &apos;SUB&apos;</span><br><span class="line">export const sub = () =&gt; (&#123;</span><br><span class="line">    type: SUB</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>什么是reducer</p>
-<ul>
-<li>设计state结构</li>
-<li>action处理<br>reducer是一个纯函数，接受旧的state和action，返回新的state。<br>注意: 每个 reducer 只负责管理全局 state 中它负责的一部分。每个 reducer 的 state 参数都不同，分别对应它管理的那部分 state 数据。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">   Reducer：</span><br><span class="line">import &#123; ADD, SUB &#125; from &apos;Action&apos;</span><br><span class="line"></span><br><span class="line">const counter = (state = 0, action) =&gt; &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case ADD: </span><br><span class="line">            return state + 1</span><br><span class="line">        case SUB:</span><br><span class="line">            return state - 1</span><br><span class="line">        default: </span><br><span class="line">            return state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>总结：把要做的修改变成一个普通对象，这个对象叫做action，而不是直接修改state。然后编写专门的函数来决定每个action如何改变应用的state，这个函数叫做reducer。</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZhouHong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="萌萌哒的童话">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/31/python/" itemprop="url">python安装以及使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T15:44:12+08:00">
-                2018-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="python安装"><a href="#python安装" class="headerlink" title="python安装"></a>python安装</h2><ul>
-<li>brew install python3<br>Mac OS自身其实已经带有Python，版本为2.7.X，这个Python主要用于支持系统文件和XCode，所以我们在安装新的Python版本时候最好不要影响这部分。<br>目前的Python3其实已经集成了pip，所以不需要再重新安装，如果是之前的版本，可以百度一下pip相关的安装方法，比较简单，这里不再赘述。<br>一个需要注意的地方，和上述讲道的问题一样，由于系统自身的Python版本并行存在，我们使用pip的时候也需要将pip命令换成用pip3这个命令。<h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><ul>
-<li>进入项目根目录下<br>python3 -m venv test 创建了一个虚拟的python3中的test文件夹<br>cd test</li>
-<li>进入虚拟环境<br>source bin/activate</li>
-<li>pip install 你需要的东西</li>
-<li>开始 do something</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/nginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZhouHong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="萌萌哒的童话">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/31/nginx/" itemprop="url">配置nginx</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T15:39:04+08:00">
-                2018-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="配置nginx命令"><a href="#配置nginx命令" class="headerlink" title="配置nginx命令"></a>配置nginx命令</h2><ul>
-<li>远程登录服务器 使用ssh命令ssh <a href="mailto:dev@39.106.111.163" target="_blank" rel="noopener">dev@39.106.111.163</a> 注意使用dev不要使用root</li>
-<li>进入nginx中 cd /etc/nginx</li>
-<li>cd sites-avaliable</li>
-<li>新建一个conf配置文件<br> 在现有的conf文件中拷贝一份<br> cp 现有的某个.conf配置文件   自己新建的文件名字.conf<br> 例如 cp web.conf esharing.conf</li>
-<li>过程中遇到权限问题 请使用sudo!!</li>
-<li>先开放你新建的conf的权限<br>命令 chmod 777 ehsharing.conf</li>
-<li>打开新建的conf文件<br>修改server下面的listen监听端口改为80 server name域名和root路径起好域名<br>vi esharing.conf 通过i命令实现修改 修改之后点击esc然后:wq保存</li>
-<li>建立软连接<br>cd sites-avaliable<br>ln -s 源文件目录 建立软连接的目录<br>例如 ln -s /etc/nginx/sites-available/esharing.conf   /etc/nginx/sites-enables/esharing.conf</li>
-<li>你配置的conf中的root路径如果不存在需要新建一个<br>例如 你配置的路径为/data/esharing/web<pre><code>命令为 cd /data/esharing/
-mkdir web
-</code></pre></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -908,7 +445,7 @@ mkdir web
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/yarn/">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/30/gitlab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
@@ -927,7 +464,7 @@ mkdir web
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/yarn/" itemprop="url">Yarn</a></h1>
+                <a class="post-title-link" href="/2018/03/30/gitlab/" itemprop="url">gitlab简介</a></h1>
         
 
         <div class="post-meta">
@@ -939,8 +476,8 @@ mkdir web
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T15:24:38+08:00">
-                2018-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T19:46:33+08:00">
+                2018-03-30
               </time>
             
 
@@ -962,8 +499,8 @@ mkdir web
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Yarn/" itemprop="url" rel="index">
-                    <span itemprop="name">Yarn</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -1001,53 +538,59 @@ mkdir web
       
         
           
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><ul>
-<li><p>你可以通过 Homebrew 包管理器安装 Yarn，如果没有安装 Node.js 它也可以安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果您使用 nvm 或类似的东西，您应该排除安装 Node.js 以便使用 nvm 的 Node.js 版本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --without-node</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>您可以通过 MacPorts 安装 Yarn。 如果您未安装 Node.js，这也为您安装它。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install yarn</span><br></pre></td></tr></table></figure>
+            <h2 id="gitlab简介"><a href="#gitlab简介" class="headerlink" title="gitlab简介"></a>gitlab简介</h2><p> gitlab是一个用于仓库管理系统的开源项目，使用git作为代码管理工具，并在此基础上搭建起来的web服务。可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用。下载安装<a href="https://bitnami.com/stack/gitlab/installer" target="_blank" rel="noopener">https://bitnami.com/stack/gitlab/installer</a></p>
+<h2 id="gitlab的配置与使用"><a href="#gitlab的配置与使用" class="headerlink" title="gitlab的配置与使用"></a>gitlab的配置与使用</h2><ul>
+<li>创建新项目（web）<ul>
+<li>登录gitlab网址成功后，点击左侧导航栏的projects，选择右侧New project选项。</li>
+<li>在创建工程的页面，按照要求填写项目的名称和可见性等信息。<ul>
+<li>Project path：项目的路径</li>
+<li>Project name：项目名称</li>
+<li>Import prject from：从哪导入项目，提供Github/Bitbucket等几个选项</li>
+<li>Description（项目的描述）：可选项，对项目的简单描述</li>
+</ul>
 </li>
 </ul>
-<h2 id="路径设置"><a href="#路径设置" class="headerlink" title="路径设置"></a>路径设置</h2><h2 id="如果您选择手动安装，用以下步骤添加-Yarn-到-path-变量，使其可以随处运行。"><a href="#如果您选择手动安装，用以下步骤添加-Yarn-到-path-变量，使其可以随处运行。" class="headerlink" title="如果您选择手动安装，用以下步骤添加 Yarn 到 path 变量，使其可以随处运行。"></a>如果您选择手动安装，用以下步骤添加 Yarn 到 path 变量，使其可以随处运行。</h2><ul>
-<li>注意：您的配置文件可能是您的 .profile、.bash_profile、.bashrc、.zshrc 等。</li>
-</ul>
+</li>
+<li><p>添加和配置SSH公钥</p>
 <ul>
-<li>将此项加入您的配置文件: “export PATH=”$PATH:/opt/yarn-[version]/bin“ （路径可能根据您安装Yarn的位置而有差异）</li>
-<li>在终端中，登录并登出以使更改生效</li>
-<li>为全局访问 Yarn的可执行文件，您需要在您的终端中设置 PATH 环境变量。 若要执行此操作，请添加”export PATH=”$PATH:yarn global bin“ 到您的配置文件。</li>
-</ul>
-<h2 id="升级-Yarn"><a href="#升级-Yarn" class="headerlink" title="升级 Yarn"></a>升级 Yarn</h2><ul>
-<li><p>如果有新版本可用，Yarn 将会提醒。 若要升级 Yarn，您可以使用 Homebrew 来完成。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade yarn</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行命令来测试 Yarn 是否安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn --version</span><br></pre></td></tr></table></figure>
+<li>.SSH的作用<br>SSH（Secure Shell）是一种安全协议，在你的电脑与GitLab服务器进行通信时，我们使用SSH密钥（SSH Keys）认证的方式来保证通信安全。</li>
+<li>创建 SSH密钥，并将密钥中的公钥添加到GitLab，以便我们通过SSH协议来访问Git仓库。<br>SSH 密钥的创建需要在终端（命令行）环境下进行，我们首先进入命令行环境。通常在OS X和Linux平台下我们使用终端工具（Terminal），在Windows平台中，可以使用Git Bash工具，git客户端安装目录下git-bash.exe文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ zhouhongdeAir:~ zhouhong$ git config --global user.name <span class="string">"zhouhong"</span> //修改你的用户名</span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ git config --global user.email <span class="string">"zhouhong@dongwu-inc.com"</span>//修改你的邮箱 </span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ ssh-keygen -t rsa -C <span class="string">"你的邮箱地址"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
-<li>现在Yarn已经 安装完毕，可以开始使用。以下是一些你需要的最常用的命令：</li>
-<li><p>初始化新项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add [package]</span><br><span class="line">yarn add [package]@[version]</span><br><span class="line">yarn add [package]@[tag]</span><br></pre></td></tr></table></figure>
+<li><p>获取SSH公钥信息</p>
+<ul>
+<li><p>命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ zhouhongdeAir:~ zhouhong$ ls ~/.ssh      根目录查看是否有 ssh</span><br><span class="line">$ id_rsa id_rsa.pub    文件</span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ <span class="built_in">cd</span> id_ras.pub</span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>通过cat命令。在命令行中敲入cat ~/.ssh/id_rsa.pub ，回车执行后命令行界面中会显示id_rsa.pub文件里的内容，复制。</p>
 </li>
-<li><p>将依赖项添加到不同依赖项类别</p>
+</ul>
 </li>
-<li><p>分别添加到devDependencies、peerDependencies和optionalDependencies:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> arn add [package] --dev</span><br><span class="line">yarn add [package] --peer</span><br><span class="line">yarn add [package] --optional</span><br></pre></td></tr></table></figure>
+<li>添加SSH公钥到gitlab<ul>
+<li>打开gitlab的profile Setting页面，选择SSH Keys</li>
+<li>添加SSH公钥。填写Title和Key，其中Title是Key的描述信息，Key是上面复制的SSH公钥的内容，直接粘贴到输入框中保存即可。</li>
+</ul>
 </li>
-<li><p>升级依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> yarn upgrade [package]</span><br><span class="line">yarn upgrade [package]@[version]</span><br><span class="line">yarn upgrade [package]@[tag]</span><br></pre></td></tr></table></figure>
+<li><p>导入项目</p>
+<ul>
+<li><p>设置下git的用户名和邮箱<br>在提交代码前，还需要设置下git的用户名和邮箱（最好用英文，不要出现中文），这样提交记录才会在gitlab上显示带有你名字的记录。在命令行窗口输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name<span class="string">"your_name"</span></span><br><span class="line">git config --global user.email <span class="string">"your_email"</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>移除依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn remove [package]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装项目的全部依赖<br>yarn或者yarn install</p>
+<li><p>导新项目到gitlab上</p>
+<pre><code>如果项目存在，需要导入到gitlab可以通过命令行直接将项目导上去。
+cd &quot;本地存在项目的路径&quot;   例如：cd reactStudy
+git init 
+git add .  点表示当前目录下所有文件添加到暂存区，也可指定具体文件
+git commit -m &apos;first git demo&apos;   把暂存区的所有内容提交到当前分支上
+git remote add origin git@gitlab.com:USERNAME/PROJECTNAME.git  （注：将USERNAME和PROJECTNAME替换成用户名和项目的名称）
+git push -u origin master   将改动提交到远程仓库
+出现Are you sure you want to continue connecting (yes/no)?写yes
+如果修改了文件夹的内容可使用终端命令如下
+git add .
+git  commit -m &quot;修改的内容&quot;
+git push
+</code></pre></li>
+</ul>
 </li>
 </ul>
 
@@ -1098,7 +641,7 @@ mkdir web
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/react-native/">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/29/redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
@@ -1117,7 +660,7 @@ mkdir web
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/react-native/" itemprop="url">环境配置：React Native 开发环境配置</a></h1>
+                <a class="post-title-link" href="/2018/03/29/redux/" itemprop="url">Redux</a></h1>
         
 
         <div class="post-meta">
@@ -1129,8 +672,8 @@ mkdir web
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T15:10:24+08:00">
-                2018-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T00:00:00+08:00">
+                2018-03-29
               </time>
             
 
@@ -1152,8 +695,8 @@ mkdir web
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index">
-                    <span itemprop="name">react-native</span>
+                  <a href="/categories/redux/" itemprop="url" rel="index">
+                    <span itemprop="name">redux</span>
                   </a>
                 </span>
 
@@ -1191,49 +734,22 @@ mkdir web
       
         
           
-            <h2 id="环境配置：React-Native-开发环境配置"><a href="#环境配置：React-Native-开发环境配置" class="headerlink" title="环境配置：React Native 开发环境配置"></a>环境配置：React Native 开发环境配置</h2><p>React Native 是FaceBook开源的一个项目，FaceBook希望可以用写 Web App 的方式去写 Native App。它可以让我们用JS和React来开发应用，使用React Native可以通吃Android 和 IOS ,以及Web,仅仅需要一份业务逻辑代码就可以来创建我们的应用。</p>
-<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>React Native 是由 React 衍生出来的，而 React 起源于 Facebook 的内部项目，因为FaceBook对市场上所有 JavaScript MVC 框架，都不太满意，就决定自己写一套，用来架设自己的 Instagram 的网站。等做出来以后，发现这套东西很不错，而且好用，就在2013年5月开源了。</p>
-<p>而衍生的 React Native 项目，希望用写 Web App 的方式去写 Native App。这样同一组人只需要写一次 UI ，就能同时运行在服务器、浏览器和手机上。FaceBook最早发布的关于React Native是针对IOS的，而React Native for Android是在去年也就是2015年9月15日开源发布的。现阶段React Native的体验虽然已经很不错了，很接近原生应用的体验。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>macbook，所以这次环境搭建是根据mac电脑来说的。</p>
-<h2 id="Homebrew安装"><a href="#Homebrew安装" class="headerlink" title="Homebrew安装"></a>Homebrew安装</h2><p>Homebrew是一款自由及开放源代码的软件包管理系统，用以简化Mac OS X系统上的软件安装过程，Homebrew以Ruby语言写成，针对于Mac OS X操作系统自带Ruby的版本。默认安装在/usr/local，由一个核心git版本库构成，以使用户能更新Homebrew。是 OS X 不可或缺的套件管理器。<br>安装之前，你可以先检查一下电脑上是否已经安装了Homebrew，检查方式如下：<br>在终端执行下列命令：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>-v</span><br></pre></td></tr></table></figure></p>
-<p>如果已经安装了，终端会显示版本号。<br>如果没有安装，那就可以用下面这种方式，进行安装，在终端上直接输入下面的命令即可：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Node-js的安装"><a href="#Node-js的安装" class="headerlink" title="Node.js的安装"></a>Node.js的安装</h2><p>Node.js®是一个基于Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。Node.js 之生态系统是目前最大的开源包管理系统。我们都知道React Native是需要使用js开发的，所以Node.js是必不可少的安装。<br>安装Node.js也很简单，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install node &amp;&amp; nvm alias default node</span><br></pre></td></tr></table></figure></p>
-<p>可能你发现了，在Terminal终端上使用的命令是nvm，如果你没有安装nvm是会提示command not found的，所以我们还得先安装nvm。</p>
-<h2 id="安装watchman-和-flow"><a href="#安装watchman-和-flow" class="headerlink" title="安装watchman 和 flow"></a>安装watchman 和 flow</h2><ul>
-<li>Watchman 是 facebook 的一个开源项目，它开源用来监视文件并且记录文件的改动情况，当文件变更它可以触发一些操作,例如执行一些命令等等。</li>
-<li><p>flow是一个Javascript静态类型检查器。Flow为Javascript添加了静态类型检查，以提高开发效率和代码质量。<br>安装方式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br><span class="line">brew install flow</span><br></pre></td></tr></table></figure>
-<h2 id="安装React-Native"><a href="#安装React-Native" class="headerlink" title="安装React Native"></a>安装React Native</h2><p>我们使用npm进行安装，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
-<p>安装完React Native之后，要想运行或者初始化一个项目，然后运行到模拟器或者真机，我们需要搭建一个Android或者ios开发环境，我这里只介绍android，相信想学习React Native的同学，电脑上都基本上有了Android的开发环境。但是可能会有坑，有一个大坑就是得配置SDK的环境变量：ANDROID_HOME。</p>
-<h2 id="SDK环境变量的配置"><a href="#SDK环境变量的配置" class="headerlink" title="SDK环境变量的配置"></a>SDK环境变量的配置</h2><ul>
-<li>启动Terminal终端工具</li>
-<li>输入cd ~/ 进入当前用户的home目录</li>
-<li><p>创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .bash_profile</span><br></pre></td></tr></table></figure>
+            <h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h2><h3 id="认识Redux"><a href="#认识Redux" class="headerlink" title="认识Redux"></a>认识Redux</h3><ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save redux</span><br><span class="line">npm install --save react-redux</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>打开并编辑：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open .bash_profile</span><br></pre></td></tr></table></figure>
+<li><p>一句话理解redux<br>应用中的所有state都以一个对象数树的方式存储在一个单一的store中，唯一改变state的方法就是触发action，一个描述发生什么的对象，为了描述action如何改变state树，需要编写reducers。</p>
 </li>
-<li><p>在文件中写入以下内容：export PATH=${PATH}:/Users/loonggg/Application/android-sdk-mac_x86/tools:/Users/loonggg/Application/android-sdk-mac_x86/platform-tools<br>友情提示：上述路径，请换成自己电脑上的SDK所在路径</p>
+<li><p>什么是action<br>Action本质上是JavaScript的普通对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。多数情况下type会被定义成字符串常量。我们应该尽量减少在actin中传递数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  Action：</span><br><span class="line">export const ADD = &apos;ADD&apos;</span><br><span class="line">export const add = () =&gt; (&#123;</span><br><span class="line">    type: ADD</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export const SUB = &apos;SUB&apos;</span><br><span class="line">export const sub = () =&gt; (&#123;</span><br><span class="line">    type: SUB</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证：输入adb回车。如果未显示command not found，说明此命令有效，环境便亮设置完成。</p>
+<li><p>什么是reducer</p>
+<ul>
+<li>设计state结构</li>
+<li>action处理<br>reducer是一个纯函数，接受旧的state和action，返回新的state。<br>注意: 每个 reducer 只负责管理全局 state 中它负责的一部分。每个 reducer 的 state 参数都不同，分别对应它管理的那部分 state 数据。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">   Reducer：</span><br><span class="line">import &#123; ADD, SUB &#125; from &apos;Action&apos;</span><br><span class="line"></span><br><span class="line">const counter = (state = 0, action) =&gt; &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case ADD: </span><br><span class="line">            return state + 1</span><br><span class="line">        case SUB:</span><br><span class="line">            return state - 1</span><br><span class="line">        default: </span><br><span class="line">            return state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="创建我们的第一个React-Native应用"><a href="#创建我们的第一个React-Native应用" class="headerlink" title="创建我们的第一个React Native应用"></a>创建我们的第一个React Native应用</h2><p>初始化项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init AwesomeProject</span><br></pre></td></tr></table></figure>
-<p>上面的AwesomeProject这个项目名字，你可以自己随意定义，自己命名，没有限制。</p>
-<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><ul>
-<li>切换到AwesomeProject的主目录</li>
-<li><p>运行项目命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">react-native run-android</span><br><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>我们使用编辑器打开和修改app.js文件，调出模拟器菜单键，选择重新载入 js 即可看到变化。<br>到这里我们就把环境配置讲完了。</p>
-</li>
-</ul>
+<p>总结：把要做的修改变成一个普通对象，这个对象叫做action，而不是直接修改state。然后编写专门的函数来决定每个action如何改变应用的state，这个函数叫做reducer。</p>
 </li>
 </ul>
 
@@ -1284,7 +800,7 @@ mkdir web
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/storage/">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/02/05/nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
@@ -1303,7 +819,7 @@ mkdir web
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/storage/" itemprop="url">React-Native 异步存储storage</a></h1>
+                <a class="post-title-link" href="/2018/02/05/nginx/" itemprop="url">配置nginx</a></h1>
         
 
         <div class="post-meta">
@@ -1315,8 +831,8 @@ mkdir web
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T15:06:23+08:00">
-                2018-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-05T00:00:00+08:00">
+                2018-02-05
               </time>
             
 
@@ -1338,8 +854,8 @@ mkdir web
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index">
-                    <span itemprop="name">react-native</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -1377,8 +893,20 @@ mkdir web
       
         
           
-            <h2 id="React-Native-异步存储storage"><a href="#React-Native-异步存储storage" class="headerlink" title="React-Native 异步存储storage"></a>React-Native 异步存储storage</h2><h2 id="封装操作RNstorage的函数"><a href="#封装操作RNstorage的函数" class="headerlink" title="封装操作RNstorage的函数"></a>封装操作RNstorage的函数</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- storage.<span class="keyword">js </span>--&gt;</span><br><span class="line"></span><br><span class="line">import &#123; AsyncStorage &#125; from <span class="string">'react-native'</span></span><br><span class="line"></span><br><span class="line">async function save(key, value) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // console.log("Set item: %s, %o", key, value)</span><br><span class="line">    await AsyncStorage.setItem(key, value)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    // console.log("Set item fail %o", error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function query(key) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // console.log("Get item: %s", key)</span><br><span class="line">    let value = await AsyncStorage.getItem(key)</span><br><span class="line">    return value</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    // console.log("Get item fail %o", error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function remove(key) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // console.log("Remove item: %s", key)</span><br><span class="line">    await AsyncStorage.removeItem(key)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    // console.log("Remove item fail %o", error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; save, query, remove &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="存、取、删的使用"><a href="#存、取、删的使用" class="headerlink" title="存、取、删的使用"></a>存、取、删的使用</h2> <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    import &#123; save, query, remove &#125; from<span class="string">'./storage'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 存 --&gt;</span><br><span class="line"></span><br><span class="line">save(<span class="string">'localSave'</span>, <span class="keyword">JSON.stringify(response.user)) </span><span class="comment">/**存储时要转为JSON字符串*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 取 --&gt;</span><br><span class="line">async function name() &#123;</span><br><span class="line">   let localSave = await query(<span class="string">'localSave'</span>)  <span class="comment">/*存储的localSave */</span></span><br><span class="line">&#125;</span><br><span class="line">  name()</span><br><span class="line"></span><br><span class="line"><span class="comment">/**使用时 取出的数据要处理下  JSON.parse(localSave)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 删出storage的函数--&gt;</span><br><span class="line"></span><br><span class="line">async function rmFun() &#123;</span><br><span class="line">	remove(<span class="string">'token'</span>)</span><br><span class="line">	remove(<span class="string">'users'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="配置nginx命令"><a href="#配置nginx命令" class="headerlink" title="配置nginx命令"></a>配置nginx命令</h2><ul>
+<li>远程登录服务器 使用ssh命令ssh <a href="mailto:dev@39.106.111.163" target="_blank" rel="noopener">dev@39.106.111.163</a> 注意使用dev不要使用root</li>
+<li>进入nginx中 cd /etc/nginx</li>
+<li>cd sites-avaliable</li>
+<li>新建一个conf配置文件<br> 在现有的conf文件中拷贝一份<br> cp 现有的某个.conf配置文件   自己新建的文件名字.conf<br> 例如 cp web.conf esharing.conf</li>
+<li>过程中遇到权限问题 请使用sudo!!</li>
+<li>先开放你新建的conf的权限<br>命令 chmod 777 ehsharing.conf</li>
+<li>打开新建的conf文件<br>修改server下面的listen监听端口改为80 server name域名和root路径起好域名<br>vi esharing.conf 通过i命令实现修改 修改之后点击esc然后:wq保存</li>
+<li>建立软连接<br>cd sites-avaliable<br>ln -s 源文件目录 建立软连接的目录<br>例如 ln -s /etc/nginx/sites-available/esharing.conf   /etc/nginx/sites-enables/esharing.conf</li>
+<li>你配置的conf中的root路径如果不存在需要新建一个<br>例如 你配置的路径为/data/esharing/web<pre><code>命令为 cd /data/esharing/
+mkdir web
+</code></pre></li>
+</ul>
+
           
         
       
@@ -1426,7 +954,7 @@ mkdir web
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/react-navigation/">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/02/01/python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
@@ -1445,7 +973,7 @@ mkdir web
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/react-navigation/" itemprop="url">react-navigation</a></h1>
+                <a class="post-title-link" href="/2018/02/01/python/" itemprop="url">python安装以及使用</a></h1>
         
 
         <div class="post-meta">
@@ -1457,8 +985,158 @@ mkdir web
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T14:21:00+08:00">
-                2018-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T00:00:00+08:00">
+                2018-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="python安装"><a href="#python安装" class="headerlink" title="python安装"></a>python安装</h2><ul>
+<li>brew install python3<br>Mac OS自身其实已经带有Python，版本为2.7.X，这个Python主要用于支持系统文件和XCode，所以我们在安装新的Python版本时候最好不要影响这部分。<br>目前的Python3其实已经集成了pip，所以不需要再重新安装，如果是之前的版本，可以百度一下pip相关的安装方法，比较简单，这里不再赘述。<br>一个需要注意的地方，和上述讲道的问题一样，由于系统自身的Python版本并行存在，我们使用pip的时候也需要将pip命令换成用pip3这个命令。<h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><ul>
+<li>进入项目根目录下<br>python3 -m venv test 创建了一个虚拟的python3中的test文件夹<br>cd test</li>
+<li>进入虚拟环境<br>source bin/activate</li>
+<li>pip install 你需要的东西</li>
+<li>开始 do something</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2017/09/05/react-navigation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouHong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="萌萌哒的童话">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/05/react-navigation/" itemprop="url">react-navigation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T00:00:00+08:00">
+                2017-09-05
               </time>
             
 
@@ -1664,7 +1342,7 @@ mkdir web
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/31/git/">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2017/04/02/react-native/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
@@ -1683,7 +1361,7 @@ mkdir web
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/git/" itemprop="url">git的使用</a></h1>
+                <a class="post-title-link" href="/2017/04/02/react-native/" itemprop="url">环境配置：React Native 开发环境配置</a></h1>
         
 
         <div class="post-meta">
@@ -1695,8 +1373,336 @@ mkdir web
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T13:59:09+08:00">
-                2018-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T20:13:00+08:00">
+                2017-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react-native</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="环境配置：React-Native-开发环境配置"><a href="#环境配置：React-Native-开发环境配置" class="headerlink" title="环境配置：React Native 开发环境配置"></a>环境配置：React Native 开发环境配置</h2><p>React Native 是FaceBook开源的一个项目，FaceBook希望可以用写 Web App 的方式去写 Native App。它可以让我们用JS和React来开发应用，使用React Native可以通吃Android 和 IOS ,以及Web,仅仅需要一份业务逻辑代码就可以来创建我们的应用。</p>
+<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>React Native 是由 React 衍生出来的，而 React 起源于 Facebook 的内部项目，因为FaceBook对市场上所有 JavaScript MVC 框架，都不太满意，就决定自己写一套，用来架设自己的 Instagram 的网站。等做出来以后，发现这套东西很不错，而且好用，就在2013年5月开源了。</p>
+<p>而衍生的 React Native 项目，希望用写 Web App 的方式去写 Native App。这样同一组人只需要写一次 UI ，就能同时运行在服务器、浏览器和手机上。FaceBook最早发布的关于React Native是针对IOS的，而React Native for Android是在去年也就是2015年9月15日开源发布的。现阶段React Native的体验虽然已经很不错了，很接近原生应用的体验。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>macbook，所以这次环境搭建是根据mac电脑来说的。</p>
+<h2 id="Homebrew安装"><a href="#Homebrew安装" class="headerlink" title="Homebrew安装"></a>Homebrew安装</h2><p>Homebrew是一款自由及开放源代码的软件包管理系统，用以简化Mac OS X系统上的软件安装过程，Homebrew以Ruby语言写成，针对于Mac OS X操作系统自带Ruby的版本。默认安装在/usr/local，由一个核心git版本库构成，以使用户能更新Homebrew。是 OS X 不可或缺的套件管理器。<br>安装之前，你可以先检查一下电脑上是否已经安装了Homebrew，检查方式如下：<br>在终端执行下列命令：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>-v</span><br></pre></td></tr></table></figure></p>
+<p>如果已经安装了，终端会显示版本号。<br>如果没有安装，那就可以用下面这种方式，进行安装，在终端上直接输入下面的命令即可：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Node-js的安装"><a href="#Node-js的安装" class="headerlink" title="Node.js的安装"></a>Node.js的安装</h2><p>Node.js®是一个基于Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。Node.js 之生态系统是目前最大的开源包管理系统。我们都知道React Native是需要使用js开发的，所以Node.js是必不可少的安装。<br>安装Node.js也很简单，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install node &amp;&amp; nvm alias default node</span><br></pre></td></tr></table></figure></p>
+<p>可能你发现了，在Terminal终端上使用的命令是nvm，如果你没有安装nvm是会提示command not found的，所以我们还得先安装nvm。</p>
+<h2 id="安装watchman-和-flow"><a href="#安装watchman-和-flow" class="headerlink" title="安装watchman 和 flow"></a>安装watchman 和 flow</h2><ul>
+<li>Watchman 是 facebook 的一个开源项目，它开源用来监视文件并且记录文件的改动情况，当文件变更它可以触发一些操作,例如执行一些命令等等。</li>
+<li><p>flow是一个Javascript静态类型检查器。Flow为Javascript添加了静态类型检查，以提高开发效率和代码质量。<br>安装方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br><span class="line">brew install flow</span><br></pre></td></tr></table></figure>
+<h2 id="安装React-Native"><a href="#安装React-Native" class="headerlink" title="安装React Native"></a>安装React Native</h2><p>我们使用npm进行安装，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<p>安装完React Native之后，要想运行或者初始化一个项目，然后运行到模拟器或者真机，我们需要搭建一个Android或者ios开发环境，我这里只介绍android，相信想学习React Native的同学，电脑上都基本上有了Android的开发环境。但是可能会有坑，有一个大坑就是得配置SDK的环境变量：ANDROID_HOME。</p>
+<h2 id="SDK环境变量的配置"><a href="#SDK环境变量的配置" class="headerlink" title="SDK环境变量的配置"></a>SDK环境变量的配置</h2><ul>
+<li>启动Terminal终端工具</li>
+<li>输入cd ~/ 进入当前用户的home目录</li>
+<li><p>创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开并编辑：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文件中写入以下内容：export PATH=${PATH}:/Users/loonggg/Application/android-sdk-mac_x86/tools:/Users/loonggg/Application/android-sdk-mac_x86/platform-tools<br>友情提示：上述路径，请换成自己电脑上的SDK所在路径</p>
+</li>
+<li><p>执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证：输入adb回车。如果未显示command not found，说明此命令有效，环境便亮设置完成。</p>
+</li>
+</ul>
+<h2 id="创建我们的第一个React-Native应用"><a href="#创建我们的第一个React-Native应用" class="headerlink" title="创建我们的第一个React Native应用"></a>创建我们的第一个React Native应用</h2><p>初始化项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init AwesomeProject</span><br></pre></td></tr></table></figure>
+<p>上面的AwesomeProject这个项目名字，你可以自己随意定义，自己命名，没有限制。</p>
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><ul>
+<li>切换到AwesomeProject的主目录</li>
+<li><p>运行项目命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">react-native run-android</span><br><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们使用编辑器打开和修改app.js文件，调出模拟器菜单键，选择重新载入 js 即可看到变化。<br>到这里我们就把环境配置讲完了。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2017/01/04/storage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouHong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="萌萌哒的童话">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/01/04/storage/" itemprop="url">React-Native 异步存储storage</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-04T00:00:00+08:00">
+                2017-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react-native</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="React-Native-异步存储storage"><a href="#React-Native-异步存储storage" class="headerlink" title="React-Native 异步存储storage"></a>React-Native 异步存储storage</h2><h2 id="封装操作RNstorage的函数"><a href="#封装操作RNstorage的函数" class="headerlink" title="封装操作RNstorage的函数"></a>封装操作RNstorage的函数</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- storage.<span class="keyword">js </span>--&gt;</span><br><span class="line"></span><br><span class="line">import &#123; AsyncStorage &#125; from <span class="string">'react-native'</span></span><br><span class="line"></span><br><span class="line">async function save(key, value) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // console.log("Set item: %s, %o", key, value)</span><br><span class="line">    await AsyncStorage.setItem(key, value)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    // console.log("Set item fail %o", error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function query(key) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // console.log("Get item: %s", key)</span><br><span class="line">    let value = await AsyncStorage.getItem(key)</span><br><span class="line">    return value</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    // console.log("Get item fail %o", error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function remove(key) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // console.log("Remove item: %s", key)</span><br><span class="line">    await AsyncStorage.removeItem(key)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    // console.log("Remove item fail %o", error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; save, query, remove &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="存、取、删的使用"><a href="#存、取、删的使用" class="headerlink" title="存、取、删的使用"></a>存、取、删的使用</h2> <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    import &#123; save, query, remove &#125; from<span class="string">'./storage'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 存 --&gt;</span><br><span class="line"></span><br><span class="line">save(<span class="string">'localSave'</span>, <span class="keyword">JSON.stringify(response.user)) </span><span class="comment">/**存储时要转为JSON字符串*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 取 --&gt;</span><br><span class="line">async function name() &#123;</span><br><span class="line">   let localSave = await query(<span class="string">'localSave'</span>)  <span class="comment">/*存储的localSave */</span></span><br><span class="line">&#125;</span><br><span class="line">  name()</span><br><span class="line"></span><br><span class="line"><span class="comment">/**使用时 取出的数据要处理下  JSON.parse(localSave)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 删出storage的函数--&gt;</span><br><span class="line"></span><br><span class="line">async function rmFun() &#123;</span><br><span class="line">	remove(<span class="string">'token'</span>)</span><br><span class="line">	remove(<span class="string">'users'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2016/12/25/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouHong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="萌萌哒的童话">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/25/git/" itemprop="url">git的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-25T15:25:33+08:00">
+                2016-12-25
               </time>
             
 
@@ -1855,7 +1861,7 @@ mkdir web
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2018/03/30/gitlab/">
+    <link itemprop="mainEntityOfPage" href="http://zhouhongblog.com/2016/12/01/yarn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
@@ -1874,7 +1880,7 @@ mkdir web
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/30/gitlab/" itemprop="url">gitlab简介</a></h1>
+                <a class="post-title-link" href="/2016/12/01/yarn/" itemprop="url">Yarn</a></h1>
         
 
         <div class="post-meta">
@@ -1886,8 +1892,8 @@ mkdir web
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T19:46:33+08:00">
-                2018-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-01T00:00:00+08:00">
+                2016-12-01
               </time>
             
 
@@ -1909,8 +1915,8 @@ mkdir web
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/Yarn/" itemprop="url" rel="index">
+                    <span itemprop="name">Yarn</span>
                   </a>
                 </span>
 
@@ -1948,59 +1954,53 @@ mkdir web
       
         
           
-            <h2 id="gitlab简介"><a href="#gitlab简介" class="headerlink" title="gitlab简介"></a>gitlab简介</h2><p> gitlab是一个用于仓库管理系统的开源项目，使用git作为代码管理工具，并在此基础上搭建起来的web服务。可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用。下载安装<a href="https://bitnami.com/stack/gitlab/installer" target="_blank" rel="noopener">https://bitnami.com/stack/gitlab/installer</a></p>
-<h2 id="gitlab的配置与使用"><a href="#gitlab的配置与使用" class="headerlink" title="gitlab的配置与使用"></a>gitlab的配置与使用</h2><ul>
-<li>创建新项目（web）<ul>
-<li>登录gitlab网址成功后，点击左侧导航栏的projects，选择右侧New project选项。</li>
-<li>在创建工程的页面，按照要求填写项目的名称和可见性等信息。<ul>
-<li>Project path：项目的路径</li>
-<li>Project name：项目名称</li>
-<li>Import prject from：从哪导入项目，提供Github/Bitbucket等几个选项</li>
-<li>Description（项目的描述）：可选项，对项目的简单描述</li>
-</ul>
+            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><ul>
+<li><p>你可以通过 Homebrew 包管理器安装 Yarn，如果没有安装 Node.js 它也可以安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果您使用 nvm 或类似的东西，您应该排除安装 Node.js 以便使用 nvm 的 Node.js 版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --without-node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>您可以通过 MacPorts 安装 Yarn。 如果您未安装 Node.js，这也为您安装它。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install yarn</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-<li><p>添加和配置SSH公钥</p>
+<h2 id="路径设置"><a href="#路径设置" class="headerlink" title="路径设置"></a>路径设置</h2><h2 id="如果您选择手动安装，用以下步骤添加-Yarn-到-path-变量，使其可以随处运行。"><a href="#如果您选择手动安装，用以下步骤添加-Yarn-到-path-变量，使其可以随处运行。" class="headerlink" title="如果您选择手动安装，用以下步骤添加 Yarn 到 path 变量，使其可以随处运行。"></a>如果您选择手动安装，用以下步骤添加 Yarn 到 path 变量，使其可以随处运行。</h2><ul>
+<li>注意：您的配置文件可能是您的 .profile、.bash_profile、.bashrc、.zshrc 等。</li>
+</ul>
 <ul>
-<li>.SSH的作用<br>SSH（Secure Shell）是一种安全协议，在你的电脑与GitLab服务器进行通信时，我们使用SSH密钥（SSH Keys）认证的方式来保证通信安全。</li>
-<li>创建 SSH密钥，并将密钥中的公钥添加到GitLab，以便我们通过SSH协议来访问Git仓库。<br>SSH 密钥的创建需要在终端（命令行）环境下进行，我们首先进入命令行环境。通常在OS X和Linux平台下我们使用终端工具（Terminal），在Windows平台中，可以使用Git Bash工具，git客户端安装目录下git-bash.exe文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ zhouhongdeAir:~ zhouhong$ git config --global user.name <span class="string">"zhouhong"</span> //修改你的用户名</span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ git config --global user.email <span class="string">"zhouhong@dongwu-inc.com"</span>//修改你的邮箱 </span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ ssh-keygen -t rsa -C <span class="string">"你的邮箱地址"</span></span><br></pre></td></tr></table></figure>
+<li>将此项加入您的配置文件: “export PATH=”$PATH:/opt/yarn-[version]/bin“ （路径可能根据您安装Yarn的位置而有差异）</li>
+<li>在终端中，登录并登出以使更改生效</li>
+<li>为全局访问 Yarn的可执行文件，您需要在您的终端中设置 PATH 环境变量。 若要执行此操作，请添加”export PATH=”$PATH:yarn global bin“ 到您的配置文件。</li>
+</ul>
+<h2 id="升级-Yarn"><a href="#升级-Yarn" class="headerlink" title="升级 Yarn"></a>升级 Yarn</h2><ul>
+<li><p>如果有新版本可用，Yarn 将会提醒。 若要升级 Yarn，您可以使用 Homebrew 来完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade yarn</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行命令来测试 Yarn 是否安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn --version</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li>现在Yarn已经 安装完毕，可以开始使用。以下是一些你需要的最常用的命令：</li>
+<li><p>初始化新项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>获取SSH公钥信息</p>
-<ul>
-<li><p>命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ zhouhongdeAir:~ zhouhong$ ls ~/.ssh      根目录查看是否有 ssh</span><br><span class="line">$ id_rsa id_rsa.pub    文件</span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ <span class="built_in">cd</span> id_ras.pub</span><br><span class="line">$ zhouhongdeAir:~ zhouhong$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>通过cat命令。在命令行中敲入cat ~/.ssh/id_rsa.pub ，回车执行后命令行界面中会显示id_rsa.pub文件里的内容，复制。</p>
+<li><p>添加依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add [package]</span><br><span class="line">yarn add [package]@[version]</span><br><span class="line">yarn add [package]@[tag]</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>将依赖项添加到不同依赖项类别</p>
 </li>
-<li>添加SSH公钥到gitlab<ul>
-<li>打开gitlab的profile Setting页面，选择SSH Keys</li>
-<li>添加SSH公钥。填写Title和Key，其中Title是Key的描述信息，Key是上面复制的SSH公钥的内容，直接粘贴到输入框中保存即可。</li>
-</ul>
+<li><p>分别添加到devDependencies、peerDependencies和optionalDependencies:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> arn add [package] --dev</span><br><span class="line">yarn add [package] --peer</span><br><span class="line">yarn add [package] --optional</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>导入项目</p>
-<ul>
-<li><p>设置下git的用户名和邮箱<br>在提交代码前，还需要设置下git的用户名和邮箱（最好用英文，不要出现中文），这样提交记录才会在gitlab上显示带有你名字的记录。在命令行窗口输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name<span class="string">"your_name"</span></span><br><span class="line">git config --global user.email <span class="string">"your_email"</span></span><br></pre></td></tr></table></figure>
+<li><p>升级依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> yarn upgrade [package]</span><br><span class="line">yarn upgrade [package]@[version]</span><br><span class="line">yarn upgrade [package]@[tag]</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>导新项目到gitlab上</p>
-<pre><code>如果项目存在，需要导入到gitlab可以通过命令行直接将项目导上去。
-cd &quot;本地存在项目的路径&quot;   例如：cd reactStudy
-git init 
-git add .  点表示当前目录下所有文件添加到暂存区，也可指定具体文件
-git commit -m &apos;first git demo&apos;   把暂存区的所有内容提交到当前分支上
-git remote add origin git@gitlab.com:USERNAME/PROJECTNAME.git  （注：将USERNAME和PROJECTNAME替换成用户名和项目的名称）
-git push -u origin master   将改动提交到远程仓库
-出现Are you sure you want to continue connecting (yes/no)?写yes
-如果修改了文件夹的内容可使用终端命令如下
-git add .
-git  commit -m &quot;修改的内容&quot;
-git push
-</code></pre></li>
-</ul>
+<li><p>移除依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn remove [package]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装项目的全部依赖<br>yarn或者yarn install</p>
 </li>
 </ul>
 
