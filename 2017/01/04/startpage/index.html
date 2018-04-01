@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://zhouhongblog.com/2017/01/04/startpage/step9.png">
 <meta property="og:image" content="http://zhouhongblog.com/2017/01/04/startpage/step10.png">
 <meta property="og:image" content="http://zhouhongblog.com/2017/01/04/startpage/step11.png">
-<meta property="og:updated_time" content="2018-03-31T15:00:07.917Z">
+<meta property="og:updated_time" content="2018-03-31T15:42:00.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS Android 应用名&#x2F;图标&#x2F;启动页设置">
 <meta name="twitter:description" content="启动页（1）添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目选择LaunchScreen.xib文件，在右下角选择添加imageview，如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图： 启动页（2）两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。Image.xc">
@@ -137,6 +137,9 @@
 
 
 
+<!-- 网页加载条 -->
+<script src="https://neveryu.github.io/js/src/pace.min.js"></script>
+
 
   <title>IOS Android 应用名/图标/启动页设置 | 萌萌哒的童话</title>
   
@@ -159,7 +162,7 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
+    <a href="https://github.com/mengmengdadetonghuayeah/mengmengdadetonghuayeah.github.io"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -314,7 +317,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouHong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/source/images/avatar.JPG">
+      <meta itemprop="image" content="/images/avatar.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -387,6 +390,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  352
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -403,12 +437,12 @@
       
 
       
-        <h2 id="启动页（1）"><a href="#启动页（1）" class="headerlink" title="启动页（1）"></a>启动页（1）</h2><p>添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目<br>选择LaunchScreen.xib文件，在右下角选择添加imageview，<br>如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，<br>选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图：<br><img src="/2017/01/04/startpage/step1.png" alt=""><br><img src="/2017/01/04/startpage/step2.png" alt=""></p>
-<h2 id="启动页（2）"><a href="#启动页（2）" class="headerlink" title="启动页（2）"></a>启动页（2）</h2><p>两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。<br>Image.xcassets / 加号 / App Icon &amp; Launch Image / New iOS Launch Image<br><img src="/2017/01/04/startpage/step3.png" alt=""><br>左侧会出现一个LaunchImage，这个就是我们刚才创建的文件。<br>右侧的勾选可以让你选择是否要对ipad、横屏、竖屏、以及低版本的ios系统做支持<br><img src="/2017/01/04/startpage/step4.png" alt=""><br>点击一张图片的时候，右侧会出现Expected Size 1242 * 2208 pixels，<br>这个代表启动图片的尺寸，按照尺寸修改图片，然后将图片拖入即可。<br><img src="/2017/01/04/startpage/step5.png" alt=""><br><img src="/2017/01/04/startpage/step6.png" alt=""><br><img src="/2017/01/04/startpage/step7.png" alt=""><br><img src="/2017/01/04/startpage/step8.png" alt=""></p>
+        <h2 id="启动页（1）"><a href="#启动页（1）" class="headerlink" title="启动页（1）"></a>启动页（1）</h2><p>添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目<br>选择LaunchScreen.xib文件，在右下角选择添加imageview，<br>如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，<br>选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图：<br><img src="step1.png" alt=""><br><img src="step2.png" alt=""></p>
+<h2 id="启动页（2）"><a href="#启动页（2）" class="headerlink" title="启动页（2）"></a>启动页（2）</h2><p>两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。<br>Image.xcassets / 加号 / App Icon &amp; Launch Image / New iOS Launch Image<br><img src="step3.png" alt=""><br>左侧会出现一个LaunchImage，这个就是我们刚才创建的文件。<br>右侧的勾选可以让你选择是否要对ipad、横屏、竖屏、以及低版本的ios系统做支持<br><img src="step4.png" alt=""><br>点击一张图片的时候，右侧会出现Expected Size 1242 * 2208 pixels，<br>这个代表启动图片的尺寸，按照尺寸修改图片，然后将图片拖入即可。<br><img src="step5.png" alt=""><br><img src="step6.png" alt=""><br><img src="step7.png" alt=""><br><img src="step8.png" alt=""></p>
 <ul>
-<li>控制启动页时间<br>例如3秒：[NSThread sleepForTimeInterval:3.0]<br><img src="/2017/01/04/startpage/step9.png" alt=""><h2 id="android"><a href="#android" class="headerlink" title="android"></a>android</h2></li>
-<li>应用名<br>进入android/app/src/main/res/values/strings.xml修改名称<br><img src="/2017/01/04/startpage/step10.png" alt=""></li>
-<li>图标<br> 在finder中打开<br> 项目/android/app/src/main/res<br> 逐一打开如图的四个文件夹更换其中图标<br> 图片名字大小都必须与之前的相同<br> mipmap-hdpi 72x72<br> mipmap-mdpi 48x48<br> mipmap-xhdpi 96x96<br> mipmap-xxhdpi 144x144<br> <img src="/2017/01/04/startpage/step11.png" alt=""></li>
+<li>控制启动页时间<br>例如3秒：[NSThread sleepForTimeInterval:3.0]<br><img src="step9.png" alt=""><h2 id="android"><a href="#android" class="headerlink" title="android"></a>android</h2></li>
+<li>应用名<br>进入android/app/src/main/res/values/strings.xml修改名称<br><img src="step10.png" alt=""></li>
+<li>图标<br> 在finder中打开<br> 项目/android/app/src/main/res<br> 逐一打开如图的四个文件夹更换其中图标<br> 图片名字大小都必须与之前的相同<br> mipmap-hdpi 72x72<br> mipmap-mdpi 48x48<br> mipmap-xhdpi 96x96<br> mipmap-xxhdpi 144x144<br> <img src="step11.png" alt=""></li>
 <li>启动页<br><a href="https://www.npmjs.com/package/react-native-splash-screen" target="_blank" rel="noopener">https://www.npmjs.com/package/react-native-splash-screen</a></li>
 </ul>
 
@@ -417,9 +451,16 @@
     
     
     
-
     
-
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
     
 
     
@@ -428,7 +469,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/react-native/" rel="tag"># react-native</a>
+            <a href="/tags/react-native/" rel="tag"> <i class="fa fa-tag"></i> react-native</a>
           
         </div>
       
@@ -441,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/04/storage/" rel="next" title="React-Native 异步存储storage">
-                <i class="fa fa-chevron-left"></i> React-Native 异步存储storage
+              <a href="/2016/12/25/git/" rel="next" title="git的使用">
+                <i class="fa fa-chevron-left"></i> git的使用
               </a>
             
           </div>
@@ -451,8 +492,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/02/react-native/" rel="prev" title="环境配置：React Native 开发环境配置">
-                环境配置：React Native 开发环境配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/04/storage/" rel="prev" title="React-Native 异步存储storage">
+                React-Native 异步存储storage <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -471,6 +512,32 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
   </div>
@@ -520,7 +587,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/source/images/avatar.JPG"
+                src="/images/avatar.JPG"
                 alt="ZhouHong" />
             
               <p class="site-author-name" itemprop="name">ZhouHong</p>
@@ -566,6 +633,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -616,6 +699,10 @@
   <span class="author" itemprop="copyrightHolder">ZhouHong<br>Copyright © 豫ICP备18033109号-1</span>
 
   
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共10.4k字</span>
 </div>
 
 
@@ -682,6 +769,8 @@
   
 
 
+  
+
 
 
 
@@ -720,6 +809,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -1119,5 +1213,10 @@
 
   
 
-</body>
+  
+ <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
 </html>

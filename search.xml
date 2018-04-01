@@ -133,9 +133,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IOS Android 应用名/图标/启动页设置]]></title>
-    <url>%2F2017%2F01%2F04%2Fstartpage%2F</url>
-    <content type="text"><![CDATA[启动页（1）添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目选择LaunchScreen.xib文件，在右下角选择添加imageview，如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图： 启动页（2）两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。Image.xcassets / 加号 / App Icon &amp; Launch Image / New iOS Launch Image左侧会出现一个LaunchImage，这个就是我们刚才创建的文件。右侧的勾选可以让你选择是否要对ipad、横屏、竖屏、以及低版本的ios系统做支持点击一张图片的时候，右侧会出现Expected Size 1242 * 2208 pixels，这个代表启动图片的尺寸，按照尺寸修改图片，然后将图片拖入即可。 控制启动页时间例如3秒：[NSThread sleepForTimeInterval:3.0]android 应用名进入android/app/src/main/res/values/strings.xml修改名称 图标 在finder中打开 项目/android/app/src/main/res 逐一打开如图的四个文件夹更换其中图标 图片名字大小都必须与之前的相同 mipmap-hdpi 72x72 mipmap-mdpi 48x48 mipmap-xhdpi 96x96 mipmap-xxhdpi 144x144 启动页https://www.npmjs.com/package/react-native-splash-screen]]></content>
+    <title><![CDATA[React-Native 异步存储storage]]></title>
+    <url>%2F2017%2F01%2F04%2Fstorage%2F</url>
+    <content type="text"><![CDATA[React-Native 异步存储storage封装操作RNstorage的函数123456789101112131415161718192021222324252627282930313233 &lt;!-- storage.js --&gt;import &#123; AsyncStorage &#125; from 'react-native'async function save(key, value) &#123; try &#123; // console.log("Set item: %s, %o", key, value) await AsyncStorage.setItem(key, value) &#125; catch (error) &#123; // console.log("Set item fail %o", error) &#125;&#125;async function query(key) &#123; try &#123; // console.log("Get item: %s", key) let value = await AsyncStorage.getItem(key) return value &#125; catch (error) &#123; // console.log("Get item fail %o", error) &#125;&#125;async function remove(key) &#123; try &#123; // console.log("Remove item: %s", key) await AsyncStorage.removeItem(key) &#125; catch (error) &#123; // console.log("Remove item fail %o", error) &#125;&#125;export &#123; save, query, remove &#125; 存、取、删的使用 123456789101112131415161718192021 import &#123; save, query, remove &#125; from'./storage'&lt;!-- 存 --&gt;save('localSave', JSON.stringify(response.user)) /**存储时要转为JSON字符串*/&lt;!-- 取 --&gt;async function name() &#123; let localSave = await query('localSave') /*存储的localSave */&#125; name()/**使用时 取出的数据要处理下 JSON.parse(localSave)*/&lt;!-- 删出storage的函数--&gt;async function rmFun() &#123; remove('token') remove('users')&#125;]]></content>
       <categories>
         <category>react-native</category>
       </categories>
@@ -144,9 +144,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[React-Native 异步存储storage]]></title>
-    <url>%2F2017%2F01%2F04%2Fstorage%2F</url>
-    <content type="text"><![CDATA[React-Native 异步存储storage封装操作RNstorage的函数123456789101112131415161718192021222324252627282930313233 &lt;!-- storage.js --&gt;import &#123; AsyncStorage &#125; from 'react-native'async function save(key, value) &#123; try &#123; // console.log("Set item: %s, %o", key, value) await AsyncStorage.setItem(key, value) &#125; catch (error) &#123; // console.log("Set item fail %o", error) &#125;&#125;async function query(key) &#123; try &#123; // console.log("Get item: %s", key) let value = await AsyncStorage.getItem(key) return value &#125; catch (error) &#123; // console.log("Get item fail %o", error) &#125;&#125;async function remove(key) &#123; try &#123; // console.log("Remove item: %s", key) await AsyncStorage.removeItem(key) &#125; catch (error) &#123; // console.log("Remove item fail %o", error) &#125;&#125;export &#123; save, query, remove &#125; 存、取、删的使用 123456789101112131415161718192021 import &#123; save, query, remove &#125; from'./storage'&lt;!-- 存 --&gt;save('localSave', JSON.stringify(response.user)) /**存储时要转为JSON字符串*/&lt;!-- 取 --&gt;async function name() &#123; let localSave = await query('localSave') /*存储的localSave */&#125; name()/**使用时 取出的数据要处理下 JSON.parse(localSave)*/&lt;!-- 删出storage的函数--&gt;async function rmFun() &#123; remove('token') remove('users')&#125;]]></content>
+    <title><![CDATA[IOS Android 应用名/图标/启动页设置]]></title>
+    <url>%2F2017%2F01%2F04%2Fstartpage%2F</url>
+    <content type="text"><![CDATA[启动页（1）添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目选择LaunchScreen.xib文件，在右下角选择添加imageview，如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图： 启动页（2）两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。Image.xcassets / 加号 / App Icon &amp; Launch Image / New iOS Launch Image左侧会出现一个LaunchImage，这个就是我们刚才创建的文件。右侧的勾选可以让你选择是否要对ipad、横屏、竖屏、以及低版本的ios系统做支持点击一张图片的时候，右侧会出现Expected Size 1242 * 2208 pixels，这个代表启动图片的尺寸，按照尺寸修改图片，然后将图片拖入即可。 控制启动页时间例如3秒：[NSThread sleepForTimeInterval:3.0]android 应用名进入android/app/src/main/res/values/strings.xml修改名称 图标 在finder中打开 项目/android/app/src/main/res 逐一打开如图的四个文件夹更换其中图标 图片名字大小都必须与之前的相同 mipmap-hdpi 72x72 mipmap-mdpi 48x48 mipmap-xhdpi 96x96 mipmap-xxhdpi 144x144 启动页https://www.npmjs.com/package/react-native-splash-screen]]></content>
       <categories>
         <category>react-native</category>
       </categories>
