@@ -112,7 +112,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -462,6 +462,35 @@
     
     </div>
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.JPG" alt="ZhouHong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.JPG" alt="ZhouHong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -550,6 +579,11 @@ var jiathis_config={
           
 
   
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
 
 
 
@@ -566,6 +600,8 @@ var jiathis_config={
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 
@@ -637,15 +673,21 @@ var jiathis_config={
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                    <a href="https://mengmengdadetonghuayeah.github.io/" target="_blank" title="GitHub">
                       
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                    <a href="1059966326@qq.com" target="_blank" title="E-Mail">
                       
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005055281473107/home?from=page_100505&mod=TAB&is_all=1#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
                   </span>
                 
             </div>
@@ -655,6 +697,20 @@ var jiathis_config={
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-plane"></i>
+                萌萌哒的童话
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mengmengdadetonghuayeah.github.io/" title="My Blog" target="_blank">My Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -742,6 +798,8 @@ var jiathis_config={
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -856,6 +914,14 @@ var jiathis_config={
 
 
 
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2160268"></script>
+      <!-- UY END -->
+    
   
 
 
