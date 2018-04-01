@@ -449,12 +449,12 @@
       
 
       
-        <h2 id="启动页（1）"><a href="#启动页（1）" class="headerlink" title="启动页（1）"></a>启动页（1）</h2><p>添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目<br>选择LaunchScreen.xib文件，在右下角选择添加imageview，<br>如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，<br>选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图：<br><img src="step1.png" alt=""><br><img src="step2.png" alt=""></p>
-<h2 id="启动页（2）"><a href="#启动页（2）" class="headerlink" title="启动页（2）"></a>启动页（2）</h2><p>两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。<br>Image.xcassets / 加号 / App Icon &amp; Launch Image / New iOS Launch Image<br><img src="step3.png" alt=""><br>左侧会出现一个LaunchImage，这个就是我们刚才创建的文件。<br>右侧的勾选可以让你选择是否要对ipad、横屏、竖屏、以及低版本的ios系统做支持<br><img src="step4.png" alt=""><br>点击一张图片的时候，右侧会出现Expected Size 1242 * 2208 pixels，<br>这个代表启动图片的尺寸，按照尺寸修改图片，然后将图片拖入即可。<br><img src="step5.png" alt=""><br><img src="step6.png" alt=""><br><img src="step7.png" alt=""><br><img src="step8.png" alt=""></p>
+        <h2 id="启动页（1）"><a href="#启动页（1）" class="headerlink" title="启动页（1）"></a>启动页（1）</h2><p>添加图片到项目：右键 app，选择添加文件，把launcher图片添加到项目<br>选择LaunchScreen.xib文件，在右下角选择添加imageview，<br>如果尺寸不合适，选择图片，按住左键，分别拉向上、下、左、右四个方向，<br>选第一个按钮，然后把数值都设置成0（这样会铺满屏幕）如图：<br><img src="/2017/01/04/startpage/step1.png" alt=""><br><img src="/2017/01/04/startpage/step2.png" alt=""></p>
+<h2 id="启动页（2）"><a href="#启动页（2）" class="headerlink" title="启动页（2）"></a>启动页（2）</h2><p>两种都配置开启应用会出现黑屏，该方式可以对应配置多种设配，可以控制启动页时间。<br>Image.xcassets / 加号 / App Icon &amp; Launch Image / New iOS Launch Image<br><img src="/2017/01/04/startpage/step3.png" alt=""><br>左侧会出现一个LaunchImage，这个就是我们刚才创建的文件。<br>右侧的勾选可以让你选择是否要对ipad、横屏、竖屏、以及低版本的ios系统做支持<br><img src="/2017/01/04/startpage/step4.png" alt=""><br>点击一张图片的时候，右侧会出现Expected Size 1242 * 2208 pixels，<br>这个代表启动图片的尺寸，按照尺寸修改图片，然后将图片拖入即可。<br><img src="/2017/01/04/startpage/step5.png" alt=""><br><img src="/2017/01/04/startpage/step6.png" alt=""><br><img src="/2017/01/04/startpage/step7.png" alt=""><br><img src="/2017/01/04/startpage/step8.png" alt=""></p>
 <ul>
-<li>控制启动页时间<br>例如3秒：[NSThread sleepForTimeInterval:3.0]<br><img src="step9.png" alt=""><h2 id="android"><a href="#android" class="headerlink" title="android"></a>android</h2></li>
-<li>应用名<br>进入android/app/src/main/res/values/strings.xml修改名称<br><img src="step10.png" alt=""></li>
-<li>图标<br> 在finder中打开<br> 项目/android/app/src/main/res<br> 逐一打开如图的四个文件夹更换其中图标<br> 图片名字大小都必须与之前的相同<br> mipmap-hdpi 72x72<br> mipmap-mdpi 48x48<br> mipmap-xhdpi 96x96<br> mipmap-xxhdpi 144x144<br> <img src="step11.png" alt=""></li>
+<li>控制启动页时间<br>例如3秒：[NSThread sleepForTimeInterval:3.0]<br><img src="/2017/01/04/startpage/step9.png" alt=""><h2 id="android"><a href="#android" class="headerlink" title="android"></a>android</h2></li>
+<li>应用名<br>进入android/app/src/main/res/values/strings.xml修改名称<br><img src="/2017/01/04/startpage/step10.png" alt=""></li>
+<li>图标<br> 在finder中打开<br> 项目/android/app/src/main/res<br> 逐一打开如图的四个文件夹更换其中图标<br> 图片名字大小都必须与之前的相同<br> mipmap-hdpi 72x72<br> mipmap-mdpi 48x48<br> mipmap-xhdpi 96x96<br> mipmap-xxhdpi 144x144<br> <img src="/2017/01/04/startpage/step11.png" alt=""></li>
 <li>启动页<br><a href="https://www.npmjs.com/package/react-native-splash-screen" target="_blank" rel="noopener">https://www.npmjs.com/package/react-native-splash-screen</a></li>
 </ul>
 
@@ -1379,5 +1379,5 @@
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</body>
 </html>
